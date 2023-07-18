@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
+AUTH_USER_MODEL = 'usuarios.Usuario'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-i+@+9hfe@0i7n+d4i8i)i(e6!d92wb0g_=9bc17z)^p*v#yn(n'
 
