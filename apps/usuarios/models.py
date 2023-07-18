@@ -10,15 +10,15 @@ class Usuario(AbstractUser):
         ('O', 'Otro'),
     ]
     
-    nombre = models.CharField(max_length=20)
-    apellido = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20,null=True)
+    apellido = models.CharField(max_length=20, null=True)
     email = models.EmailField(unique=True)
-    genero = models.CharField(max_length=1, choices=GENERO_ELECCION)
+    genero = models.CharField(max_length=1, choices=GENERO_ELECCION,null=True)
     curriculum = models.FileField(null=True, blank=True, upload_to='usuarios/curriculums')
-    localidad = models.CharField(max_length=50)
-    telefono = models.IntegerField(max_length=11,blank=True, unique=True)
-    dni = models.IntegerField(max_length=8,unique=True)
-    edad = models.IntegerField(max_length=2)
+    localidad = models.CharField(max_length=50,null=True)
+    telefono = models.IntegerField(blank=True, unique=True,null=True)
+    dni = models.IntegerField(unique=True, null=True)
+    edad = models.IntegerField(null=True)
     imagen = models.ImageField(null=True, blank=True, upload_to='usuarios/imagenes', default='img/usuario_default.png')
     
     def __str__(self):
