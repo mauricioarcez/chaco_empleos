@@ -1,12 +1,32 @@
+/* ----- ESTILOS DE TODA LA PAGINA ---- */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* ----- ESTILOS DE LA BARRA DE NAVEGACION ---- */
 nav {
-  background-color: #1eb162;
+  background-color: #185fbe;
+  width: 100%;
+  height: 8vh;
 }
 
+/* ----- ESTILOS DEL BODY ---- */
+.inicio_principal{
+  height: 77vh;
+  width: 100%;
+}
+.texto_principal{
+  color: #1b1c1e;
+}
+.texto_secundario{
+  color: #1eb162;
+}
 
-
+/* ----- ESTILOS DEL FOOTER ---- */
+footer {
+  background-color: #303030;
+  height: 15vh;
+  width: 100%;
+}
