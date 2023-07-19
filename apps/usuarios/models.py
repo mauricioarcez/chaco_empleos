@@ -2,26 +2,31 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
+
+class Genero(models.Model):
+    genero = models.CharField(max_length=15)
+
+    def __str__(self) -> str:
+        return self.genero
+
+class Localidad(models.Model):
+    localidad = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.localidad
+
 class Usuario(AbstractUser):
     
-    GENERO_ELECCION = [
-        ('M', 'Masculino'),
-        ('F', 'Femenino'),
-        ('O', 'Otro'),
-    ]
-    
-    nombre = models.CharField(max_length=20,null=True)
-    apellido = models.CharField(max_length=20, null=True)
+    nombre = models.CharField(max_length=20,default='')
+    apellido = models.CharField(max_length=20,default='')
     email = models.EmailField(unique=True)
-    genero = models.CharField(max_length=1, choices=GENERO_ELECCION,null=True)
-    curriculum = models.FileField(null=True, blank=True, upload_to='usuarios/curriculums')
-    localidad = models.CharField(max_length=50,null=True)
-    telefono = models.IntegerField(blank=True, unique=True,null=True)
-    dni = models.IntegerField(unique=True, null=True)
-    edad = models.IntegerField(null=True)
-    imagen = models.ImageField(null=True, blank=True, upload_to='usuarios/imagenes', default='img/usuario_default.png')
+    genero = models.ForeignKey(Genero, on_delete=models.CASCADE,null=True)
+    localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE,null=True)
+    telefono = models.IntegerField(blank=True, unique=True,default=None,null=True)
+    dni = models.IntegerField(unique=True,null=True)
+    edad = models.IntegerField(null=True,blank=True,default=None)
+    imagen = models.ImageField(null=True, blank=True, upload_to='usuarios/imagenes')
+    is_staff = models.BooleanField(default=False)
     
     def __str__(self):
-        return f'{self.nombre}#{self.id}'
-    
-
+        return self.nombre
