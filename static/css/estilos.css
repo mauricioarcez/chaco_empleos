@@ -4,47 +4,91 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    font-size: 14px;
 }
 
 /* ----- ESTILOS DE LA BARRA DE NAVEGACION ---- */
 nav {
   background-color: #F4F4F4;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  padding: 5%;
   width: 100%;
-  height: 8vh;
+  height: 5.3125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 1rem;
 }
 
 .nav_logo img {
-  height: 50px;
+  width: 6.25rem;
+  height: 6.25rem;
+  flex-shrink: 0;
+  border-radius: 6.25rem;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  margin-right: 1rem;
 }
-
 .nav_secciones{
-  justify-self: end;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+.nav_secciones button{
+  border-radius: 0.9375rem;
+  background: #106035;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #F4F4F4;
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: inline-flex;
+  padding: 0.875rem;
+  justify-content: center;
+  gap: 0.625rem;
 }
 
-.nav_secciones a {
-  margin-left: 5%;
+.nav_secciones a{
   color: #1B1C1E;
+  padding: 1.5rem;
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 /* ----- ESTILOS DEL BODY ---- */
+body{
+  padding: 0;
+  margin: 0;
+}
 .inicio_principal{
-  height: 77vh;
+  display:flex;
+  position: absolute;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
+  height: 87.67vh;
 }
-.texto_principal{
-  color: #1b1c1e;
+
+.svg_azul svg{
+  position: relative;
+  width: 100%;
+  height: 29.7rem;
+  flex-shrink: 0;
+  fill: rgba(24, 95, 190, 0.95);
 }
-.texto_secundario{
-  color: #1eb162;
+.svg_verde svg{
+  position: relative;
+  width: 100%;
+  height: 23rem;
+  flex-shrink: 0;
+  fill: rgba(16, 96, 53, 0.25);
 }
 
 /* ----- ESTILOS DEL FOOTER ---- */
 footer {
   background-color: #303030;
-  height: 15vh;
+  height: 2rem;
   width: 100%;
 }
