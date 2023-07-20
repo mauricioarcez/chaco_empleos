@@ -1,6 +1,6 @@
 from django.db import models
-from apps.usuarios.models import Usuario
 
+from apps.usuarios.models import Usuario
 # Create your models here.
 
 class Categoria(models.Model):
@@ -15,9 +15,22 @@ class Localidad(models.Model):
     def __str__(self) -> str:
         return self.nombre
 
+class Empresa(models.Model):
 
+    administrador = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
+    nombre = models.CharField(max_length=40)
+    descripcion = models.TextField(blank=True, null=True)
+    Localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.nombre
+    
+    
 class Empleo(models.Model):
-    titulo = models.CharField(max_length=40,null=False)
+    
+    puesto = models.CharField(max_length=40,null=False)
+    publicador = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     contenido = models.TextField()
     localidad = models.ForeignKey(Localidad,on_delete=models.CASCADE)
     salario = models.DecimalField(max_digits=10,decimal_places=2)
@@ -34,5 +47,3 @@ class Empleo(models.Model):
 
     class Meta:
         ordering = ('-fecha_publicacion',)
-    
-    #id_empresa (agregar)
