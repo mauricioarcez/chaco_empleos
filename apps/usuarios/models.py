@@ -24,8 +24,8 @@ class Usuario(AbstractUser):
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE,null=True)
     telefono = models.IntegerField(blank=True, unique=True,default=None,null=True)
     dni = models.IntegerField(unique=True,null=True)
-    edad = models.IntegerField(null=True,blank=True,default=None)
-    imagen = models.ImageField(null=True, blank=True, upload_to='usuarios/imagenes')
+    fecha_nacimiento = models.DateField('fecha_nacimiento',default='2000-1-1')
+    imagen = models.ImageField(null=True, blank=True, upload_to='usuarios/imagenes', default='usuarios/usuario_default.png')
     is_staff = models.BooleanField(default=False)
     
     def __str__(self):

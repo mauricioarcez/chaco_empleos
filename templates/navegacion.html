@@ -1,10 +1,14 @@
 {% load static %}
 <nav>
     <div class="nav_logo">
-        <img src="../static/img/logo_chacoempleos.png" alt="ChacoEmpleos">
+        <a href="{% url 'inicio' %}">
+            <img src=" {% static 'img/logo_chacoempleos.png' %}" alt="ChacoEmpleos logo">
+        </a>
     </div>
     <div class="nav_secciones">
-        <a href="#">Crea tu cuenta</a>
-        <button>Iniciar sesión</button>
+        <a href="{% url 'apps.usuarios:registrar' %}">Crea tu cuenta</a>
+        <a href="{% url 'apps.usuarios:iniciar_sesion' %}">
+            <button>Iniciar sesión</button>
+        </a>
     </div>
 </nav>
