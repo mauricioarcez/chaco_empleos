@@ -3,6 +3,7 @@
 
 {% block titulo %}
 <title>Inicio</title>
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 {% endblock titulo %}
 
 {% block contenido %}
@@ -12,6 +13,17 @@
             <path d="M1448.5 255.5C1448.5 393.847 1069.5 216 669.5 338C160 486.5 -36.1017 526.778 -134 325C-289.5 4.49997 -203.5 63.38 614.5 27C1025.4 27 1448.5 -115 1448.5 255.5Z" fill="#185FBE" fill-opacity="0.95"/>
         </svg>
     </div>
+    <div class="imagen_incio">
+        <img src="{% static 'imagen_incio.svg' %}" alt="imagen1">
+    </div>
+    <div>   
+        <a href="{% url 'apps.usuarios:registrar' %}">
+            <button class="Boton_Registrar">Registrar</button>
+        </a>
+    </div>
+    <a href="{% url 'apps.empleos:agregar_empleo' %}">
+        <button>Publicar empleo</button>
+    </a>
     <div class="svg_verde">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 258">
             <path d="M1440 245.5C1440 317.573 1117.65 376 720 376C322.355 376 0 317.573 0 245.5C0 173.427 322.355 0.5 720 0.5C1117.65 0.5 1440 173.427 1440 245.5Z" fill="#106035" fill-opacity="0.25"/>

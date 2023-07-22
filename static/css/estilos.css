@@ -106,4 +106,75 @@ nav {
 }
 
 
+
+.Boton_Registrar {
+  background-color: #106035;
+  border-radius: 15px;
+  padding: 14px;
+  margin: 14px;
+  color:#F4F4F4;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+#imagen_inicio{
+  float: right;
+  width: 750px;
+  height: 500px;
+  position: relative;
+}
+
 /* ----- ESTILOS DEL FOOTER ---- */
+
+
+/* ----- AGREGAR_EMPLEO.html ---- */
+.empleo {
+  position: relative;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/trabajo.jpg');
+  background-size: 100%;
+}
+
+#titulo_empleo{
+  color: #F4F4F4;
+  font:bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.conteiner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form_empleo{
+  color: #c5c5c5;
+  padding: 20px;
+  font-weight: 100;
+}
+
+.form_empleo .form_group{
+  padding: 20px;
+}
+.publicar{
+  color: #f4f4f4;
+  background-color: #106035;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.form_empleo input,textarea{
+  width: 400px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border-radius: 10px ;
+}
+
+.form_empleo label{
+  color: #F4F4F4;
+  display: block;
+}
