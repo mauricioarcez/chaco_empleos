@@ -21,6 +21,7 @@ nav {
 }
 
 .nav_logo{
+  display: flex;
   margin-left: 1rem;
   margin-top: 1rem;
 }
@@ -29,16 +30,18 @@ nav {
   height: 5.1rem;
   border-radius: 6.25rem;
   background: url(<path-to-image>), lightgray 50% / cover no-repeat;
-  
 }
+
 .nav_secciones{
-  display: flex;
+  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
 }
+
 .nav_secciones button{
-  height: 2.3rem;
-  width: 8.2rem;
-  border-radius: 0.9rem;
+  height: 2rem;
+  width: 6rem;
+  border-radius: 0.7rem;
   align-items: center;
   justify-content: center;
   background-color: #158449;
@@ -55,6 +58,7 @@ nav {
 }
 
 .nav_secciones a{
+  display: inline-flex;
   color: #1B1C1E;
   padding: 0.5rem;
   font-size: 1.1rem;

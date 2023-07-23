@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 from .models import Empleo
@@ -8,8 +9,12 @@ from .models import Empleo
 # Create your views here.
 
 
-class AgregarEmpleo(CreateView):
+class AgregarEmpleo(CreateView, LoginRequiredMixin):
     model = Empleo
     fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad']
     template_name = 'empleos/agregar_empleo.html'
     success_url = reverse_lazy('inicio')
+    
+    def form_valid(self, form):
+        form.instance.colaborador = self.request.user
+        return super().form_valid(form)
