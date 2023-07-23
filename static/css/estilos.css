@@ -10,9 +10,10 @@
 /* ----- ESTILOS DE LA BARRA DE NAVEGACION ---- */
 nav {
   position: fixed;
+  top: 0;
   background-color: #F4F4F4;
   width: 100%;
-  height: 10vh;
+  height: 9vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,11 +22,11 @@ nav {
 
 .nav_logo{
   margin-left: 1rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
 }
 .nav_logo img {
-  width: 5.2rem;
-  height: 5.2rem;
+  width: 5.1rem;
+  height: 5.1rem;
   border-radius: 6.25rem;
   background: url(<path-to-image>), lightgray 50% / cover no-repeat;
   
@@ -35,15 +36,15 @@ nav {
   align-items: center;
 }
 .nav_secciones button{
-  height: 2.5rem;
-  width: 9rem;
+  height: 2.3rem;
+  width: 8.2rem;
   border-radius: 0.9rem;
   align-items: center;
   justify-content: center;
   background-color: #158449;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: #F4F4F4;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -56,7 +57,7 @@ nav {
 .nav_secciones a{
   color: #1B1C1E;
   padding: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -67,7 +68,6 @@ nav {
   display:flex;
   flex-direction: column;
   position: absolute;
-  overflow: hidden;
   width: 100%;
   z-index: 0;
 }
@@ -156,46 +156,49 @@ nav {
 
 /* ----- AGREGAR_EMPLEO.html ---- */
 .empleo {
-  position: relative;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/trabajo.jpg');
   background-size: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 #titulo_empleo{
   color: #F4F4F4;
   font:bold;
   display: flex;
+  font-size: 2rem;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 4.5rem;
+  margin-bottom: 0;
 }
 
 .conteiner{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 77vh;
 }
 
 .form_empleo{
   color: #c5c5c5;
-  padding: 20px;
+  padding: 0;
   font-weight: 100;
 }
 
-.form_empleo .form_group{
-  padding: 20px;
-}
 .publicar{
   color: #f4f4f4;
-  background-color: #106035;
+  margin-top: 0.5rem;
+  background-color: #158449;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 100%;
+  text-shadow: 1px 1px 0px #1B1C1E;
   border-radius: 10px;
 }
 
 .form_empleo input,textarea{
-  width: 400px;
-  height: 50px;
+  width: 22rem;
+  height: 2.3rem;
   background-color: #f0f0f0;
   border-radius: 10px ;
 }

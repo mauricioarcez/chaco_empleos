@@ -24,11 +24,13 @@
             <img src="{% static 'img/imagen_incio.svg' %}" alt="imagen1">
         </div>
     </div>
-    
     <div class="svg_verde">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 258">
             <path d="M1440 245.5C1440 317.573 1117.65 376 720 376C322.355 376 0 317.573 0 245.5C0 173.427 322.355 0.5 720 0.5C1117.65 0.5 1440 173.427 1440 245.5Z" fill="#106035" fill-opacity="0.25"/>
         </svg>
     </div>
+    <a href="{% url 'apps.empleos:agregar_empleo' %}">
+        <button>Publicar empleo</button>
+    </a>
 </div>
 {% endblock contenido %}
