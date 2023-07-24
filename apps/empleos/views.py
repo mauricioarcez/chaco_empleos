@@ -11,7 +11,7 @@ from .models import Empleo
 
 class AgregarEmpleo(CreateView, LoginRequiredMixin):
     model = Empleo
-    fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad']
+    fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad','vacantes','categoria','localidad','publicador']
     template_name = 'empleos/agregar_empleo.html'
     success_url = reverse_lazy('inicio')
     

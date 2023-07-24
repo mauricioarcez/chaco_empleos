@@ -162,8 +162,6 @@ nav {
 .empleo {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/trabajo.jpg');
   background-size: 100%;
-  height: 100vh;
-  overflow: hidden;
 }
 
 #titulo_empleo{
@@ -177,18 +175,6 @@ nav {
   margin-bottom: 0;
 }
 
-.conteiner{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 77vh;
-}
-
-.form_empleo{
-  color: #c5c5c5;
-  padding: 0;
-  font-weight: 100;
-}
 
 .publicar{
   color: #f4f4f4;
@@ -198,16 +184,4 @@ nav {
   width: 100%;
   text-shadow: 1px 1px 0px #1B1C1E;
   border-radius: 10px;
-}
-
-.form_empleo input,textarea{
-  width: 22rem;
-  height: 2.3rem;
-  background-color: #f0f0f0;
-  border-radius: 10px ;
-}
-
-.form_empleo label{
-  color: #F4F4F4;
-  display: block;
 }
