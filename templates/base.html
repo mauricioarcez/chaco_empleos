@@ -23,8 +23,15 @@
     </header>
     
     <main>
-        {% block contenido %}
-        {% endblock contenido %}
+        <section>
+        {% block contenido_inicio %}
+        {% endblock contenido_inicio %}
+        </section>
+
+        <section>
+            {% block empleos_lista %}
+            {% endblock empleos_lista %}
+        </section>
     </main>
 
     <footer>
