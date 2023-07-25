@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -10,7 +10,7 @@ from .models import Empleo
 
 class AgregarEmpleo(CreateView, LoginRequiredMixin):
     model = Empleo
-    fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad','vacantes','categoria','localidad','publicador']
+    fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad','vacantes','categoria','localidad','empresa']
     template_name = 'empleos/agregar_empleo.html'
     success_url = reverse_lazy('empleos')
     
@@ -25,3 +25,8 @@ class ListaEmpleos(ListView):
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
     paginate_by = 5
+    
+class DetalleEmpleo(DetailView):
+    model = Empleo
+    template_name = 'empleos/detalles_empleo.html'
+    context_object_name = 'empleo'

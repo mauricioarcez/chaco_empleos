@@ -6,12 +6,41 @@
 {% endblock %}
 
 {% block contenido %}
-<div>
-    <h1>Listado de empleos</h1>
-    <ul>
-        {% for empleo in empleos %}
-                <li>{{ empleo.puesto }} <a href="#">Ver más</a></li>
+     
+        <div class="contenedor_empleos">
+            {% for empleo in empleos %}
+                <div class="card mb-3" style="width: 32rem; height: 9rem; margin-right: 2rem;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="..." class="img-fluid rounded-start" alt="empresa logo">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{empleo.puesto}}</h5>
+                            <p class="card-text">{{ empleo.empresa }}</p>
+                            <a href="{% url 'apps.empleos:detalle_empleo' empleo.pk %}">
+                                <button type="button" class="btn btn-primary btn-sm">Ver más</button>
+                            </a>
+                            <p class="card-text"><small class="text-body-secondary">Publicado el: {{empleo.fecha_publicacion}}</small></p>
+                            
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-    </ul>
-</div>
-{% endblock contenido %}
+        </div>
+    
+    <div class="contenedor_detalles">
+        <div class="card" style="width: 28rem; height: 30rem; padding: 1rem; margin-top: 5rem">
+            <div class="card-body">
+                <h5 class="card-title">{{ empleo.puesto }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Vacantes: {{ empleo.vacantes }}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Empresa: {{ empleo.empresa }}</h6>
+                <p class="card-text">{{ empleo.contenido }}.</p>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+   

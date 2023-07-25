@@ -13,6 +13,7 @@ nav {
   top: 0;
   background-color: #F4F4F4;
   width: 100%;
+  margin: 0;
   height: 9vh;
   display: flex;
   justify-content: space-between;
@@ -196,4 +197,33 @@ a.subrayado{
   width: 100%;
   text-shadow: 1px 1px 0px #1B1C1E;
   border-radius: 10px;
+}
+
+/* ----- LISTA DE EMPLEOS ---- */
+.contenedor_empleos{
+  display: flex;
+  float: left;
+  justify-content:flex-end;
+  align-items: center;
+  background-color: #E0E0E0;
+  width: 50%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  
+
+}
+
+/* ----- DETALLES DE EMPLEOS ---- */
+.contenedor_detalles{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  float: right;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  height: 100vh;
+  background-color: #E0E0E0;
 }

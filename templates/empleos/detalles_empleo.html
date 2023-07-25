@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>{{empleo.puesto}}</title>
+{% endblock %}
+
+{% block contenido %}
+    
+    <div class="contenedor_detalles">
+        <div class="card" style="width: 28rem; height: 30rem; padding: 1rem; margin-top: 5rem">
+            <div class="card-body">
+                <h5 class="card-title">{{ empleo.puesto }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Vacantes: {{ empleo.vacantes }}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Empresa: {{ empleo.empresa }}</h6>
+                <p class="card-text">{{ empleo.contenido }}.</p>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

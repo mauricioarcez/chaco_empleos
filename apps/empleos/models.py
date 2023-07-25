@@ -31,7 +31,7 @@ class Empresa(models.Model):
 class Empleo(models.Model):
     
     puesto = models.CharField(max_length=40,null=False)
-    publicador = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     contenido = models.TextField()
     localidad = models.ForeignKey(Localidad,on_delete=models.CASCADE)
     salario = models.DecimalField(max_digits=10,decimal_places=2)
