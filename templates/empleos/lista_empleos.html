@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Empleos</title>
+{% endblock %}
+
+{% block contenido %}
+<div>
+    <h1>Listado de empleos</h1>
+    <ul>
+        {% for empleo in empleos %}
+                <li>{{ empleo.puesto }} <a href="#">Ver más</a></li>
+            {% endfor %}
+    </ul>
+</div>
+{% endblock contenido %}

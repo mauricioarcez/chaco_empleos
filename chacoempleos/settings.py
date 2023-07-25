@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-i+@+9hfe@0i7n+d4i8i)i(e6!d92wb0g_=9bc17z)^p*v#yn(n
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #LOGIN_URL = reverse_lazy('apps.usuarios:iniciar_sesion')
-LOGIN_REDIRECT_URL = reverse_lazy('inicio')
+LOGIN_REDIRECT_URL = reverse_lazy('apps.empleos:empleos')
 LOGOUT_REDIRECT_URL= reverse_lazy('inicio')
 
 DEBUG = True

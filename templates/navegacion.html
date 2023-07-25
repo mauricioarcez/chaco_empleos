@@ -1,16 +1,60 @@
 {% load static %}
 <nav>
+    {% if user.is_authenticated %}
+    {% if not user.is_staff %}
     <div class="nav_logo">
         <a href="{% url 'inicio' %}">
             <img src=" {% static 'img/logo_chacoempleos.png' %}" alt="ChacoEmpleos logo">
         </a>
     </div>
+    <div class="contacto">
+        <a href="#">Contacto</a>
+        <a href="{% url 'apps.empleos:empleos' %}">Ver empleos</a>
+    </div>
     <div class="nav_secciones">
-        <a href="{% url 'apps.usuarios:registrar' %}">Ver empresas</a>
-        <a href="{% url 'apps.usuarios:registrar' %}">¿Quienes somos?</a>
-        <a href="{% url 'apps.usuarios:registrar' %}">Crea tu cuenta</a>
+        <a href="{% url 'apps.usuarios:cerrar_sesion' %}">
+            <button>Desconectar</button>
+        </a>
+    </div>
+    {% endif %}
+    {% else %}
+
+    <div class="nav_logo">
+        <a href="{% url 'inicio' %}">
+            <img src=" {% static 'img/logo_chacoempleos.png' %}" alt="ChacoEmpleos logo">
+        </a>
+    </div>
+    <div class="contacto">
+        <a href="#">¿Quienes somos?</a>
+    </div>
+    <div class="nav_secciones">
+        <a href="{% url 'apps.usuarios:registrar' %}" class='subrayado'>Crea tu cuenta</a>
         <a href="{% url 'apps.usuarios:iniciar_sesion' %}">
             <button>Ingresar</button>
         </a>
+    </div> 
+
+    {% endif %}
+
+
+     {% if user.is_authenticated and user.is_staff %}
+
+    <div class="nav_logo">
+        <a href="{% url 'inicio' %}">
+            <img src=" {% static 'img/logo_chacoempleos.png' %}" alt="ChacoEmpleos logo">
+        </a>
     </div>
+    <div class="contacto">
+        <a href="{% url 'apps.empleos:agregar_empleo' %}">Publicar Empleos</a>
+        <a href="#">Editar Empleos</a>
+        <a href="{% url 'apps.empleos:empleos' %}">Ver empleos</a>
+    </div>
+    <div class="nav_secciones">
+        <a href="{% url 'apps.usuarios:cerrar_sesion' %}">
+            <button>Desconectar</button>
+        </a>
+    </div>
+
+    {% endif %}
+
 </nav>

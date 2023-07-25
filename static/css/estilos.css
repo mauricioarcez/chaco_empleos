@@ -31,16 +31,18 @@ nav {
   border-radius: 6.25rem;
   background: url(<path-to-image>), lightgray 50% / cover no-repeat;
 }
-
-.nav_secciones{
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
+.contacto a{
+  text-decoration: none;
+  color: #1B1C1E;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
-
 .nav_secciones button{
   height: 2rem;
-  width: 6rem;
+  width: 7rem;
   border-radius: 0.7rem;
   align-items: center;
   justify-content: center;
@@ -57,10 +59,9 @@ nav {
   margin-right: 1.3rem;
 }
 
-.nav_secciones a{
-  display: inline-flex;
+a.subrayado{
   color: #1B1C1E;
-  padding: 0.5rem;
+  padding-right: 1.1rem;
   font-size: 1.1rem;
   font-style: normal;
   font-weight: 500;
@@ -156,6 +157,17 @@ nav {
 }
 
 /* ----- ESTILOS DEL FOOTER ---- */
+
+/* ----- REGISTRAR USUARIO ---- */
+.container {
+      margin-top: 80px;
+      /* Ajusta el valor según sea necesario para dejar suficiente espacio entre el nav y el formulario */
+      max-width: 500px;
+      /* Ajusta el valor para reducir el ancho máximo del formulario */
+      margin-left: auto;
+      margin-right: auto;
+}
+
 
 
 /* ----- AGREGAR_EMPLEO.html ---- */
