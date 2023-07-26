@@ -6,41 +6,31 @@
 {% endblock %}
 
 {% block contenido %}
+    <div class="boton_publicar">
+        <a href="{% url 'apps.empleos:agregar_empleo' %}">
+            <div style="width: 100%; height: 100%; padding: 10px; background: #106035; border-radius: 15px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                <div style="width: 25px; height: 25px; border: 1px #E0E0E0 solid"></div>
+                <div style="color: #E0E0E0; font-size: 25px; font-family: Lato; font-weight: 900; word-wrap: break-word">Publicar empleo</div>
+            </div>
+        </a>
+    </div>
+    <br>
      
-        <div class="contenedor_empleos">
-            {% for empleo in empleos %}
-                <div class="card mb-3" style="width: 32rem; height: 9rem; margin-right: 2rem;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                        <img src="..." class="img-fluid rounded-start" alt="empresa logo">
-                        </div>
-                        <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{empleo.puesto}}</h5>
-                            <p class="card-text">{{ empleo.empresa }}</p>
-                            <a href="{% url 'apps.empleos:detalle_empleo' empleo.pk %}">
-                                <button type="button" class="btn btn-primary btn-sm">Ver más</button>
-                            </a>
-                            <p class="card-text"><small class="text-body-secondary">Publicado el: {{empleo.fecha_publicacion}}</small></p>
-                            
-                        </div>
-                        </div>
+    {% for empleo in empleos %}
+        <a href="{% url 'apps.empleos:detalle_empleo' empleo.pk %}">
+            <div class="card_empleo">
+                <div style="width: 100%; height: 100%; padding: 20px; background: #F5F5F5; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px; border: 1px #C5C5C5 solid; justify-content: center; align-items: center; gap: 13px; display: inline-flex">
+                    <img style="width: 100px; height: 100px; border-radius: 9999px" src="#" />
+                    <div style="width: 312px; height: 100px; position: relative">
+                        <div style="left: 0px; top: 0px; position: absolute; color: #0F0F0F; font-size: 25px; font-family: Lato; font-weight: 700; word-wrap: break-word">{{ empleo.puesto }}</div>
+                        <div style="left: 0px; top: 30px; position: absolute; color: #0F0F0F; font-size: 22px; font-family: Lato; font-weight: 400; word-wrap: break-word">{{ empleo.empresa }}</div>
+                        <div style="left: 0px; top: 74px; position: absolute; color: #0F0F0F; font-size: 22px; font-family: Lato; font-weight: 400; word-wrap: break-word">{{ empleo.fecha_publicacion }}</div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-    
-    <div class="contenedor_detalles">
-        <div class="card" style="width: 28rem; height: 30rem; padding: 1rem; margin-top: 5rem">
-            <div class="card-body">
-                <h5 class="card-title">{{ empleo.puesto }}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Vacantes: {{ empleo.vacantes }}</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Empresa: {{ empleo.empresa }}</h6>
-                <p class="card-text">{{ empleo.contenido }}.</p>
-            </div>
-        </div>
-    </div>
-    
+        </a>
+        <br>
+    {% endfor %}
+
 {% endblock %}
    

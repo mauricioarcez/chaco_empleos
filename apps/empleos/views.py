@@ -12,7 +12,7 @@ class AgregarEmpleo(CreateView, LoginRequiredMixin):
     model = Empleo
     fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad','vacantes','categoria','localidad','empresa']
     template_name = 'empleos/agregar_empleo.html'
-    success_url = reverse_lazy('empleos')
+    success_url = reverse_lazy('inicio')
     
     def form_valid(self, form):
         form.instance.colaborador = self.request.user
@@ -24,7 +24,7 @@ class ListaEmpleos(ListView):
     template_name = 'empleos/lista_empleos.html'
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
-    paginate_by = 5
+    paginate_by = 10
     
 class DetalleEmpleo(DetailView):
     model = Empleo

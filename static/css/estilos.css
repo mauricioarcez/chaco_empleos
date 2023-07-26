@@ -200,30 +200,26 @@ a.subrayado{
 }
 
 /* ----- LISTA DE EMPLEOS ---- */
-.contenedor_empleos{
-  display: flex;
-  float: left;
-  justify-content:flex-end;
-  align-items: center;
-  background-color: #E0E0E0;
-  width: 50%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  
 
+.boton_publicar{
+  margin-top: 5%;
+  color: #E0E0E0;
+  font-size: 25px;
+  font-family: Lato;
+  font-weight: 900;
+  word-wrap: break-word;
 }
+
+.boton_publicar:hover{
+  color: #185FBE;
+}
+
+.card_empleo{
+  column-count: 2;
+  column-gap: 20px;
+}
+
+
 
 /* ----- DETALLES DE EMPLEOS ---- */
-.contenedor_detalles{
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  align-items: center;
-  float: right;
-  margin: 0;
-  padding: 0;
-  width: 50%;
-  height: 100vh;
-  background-color: #E0E0E0;
-}
+
