@@ -19,11 +19,10 @@ class Localidad(models.Model):
 class Empresa(models.Model):
 
     administrador = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     nombre = models.CharField(max_length=40)
     descripcion = models.TextField(blank=True, null=True)
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, null=True)
-    logo = models.ImageField(null=True, blank=True, upload_to='empleos', default='usuarios/usuario_default.png')
+    logo = models.ImageField(null=True, blank=True, upload_to='empleos', default='empleos/logo_default.png')
 
     def __str__(self):
         return self.nombre
