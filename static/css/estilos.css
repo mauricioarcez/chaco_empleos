@@ -267,12 +267,12 @@ a.subrayado{
   top: 84px; 
   position: absolute; 
   color: gray;
-  font-size: 1.1rem; 
+  font-size: 1rem; 
   font-weight: 200; 
   word-wrap: break-word;
 }
 .fecha_p a{
-  margin-left: 6rem;
+  padding-left: 2rem;
   font-size: 1.2rem;
 }
 
