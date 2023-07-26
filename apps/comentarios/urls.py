@@ -8,7 +8,7 @@ from .views import *
 app_name = 'apps.comentarios'
 
 urlpatterns = [
-    path('comentar/', AgregarComentario, name = 'comentario'),
+    path('crear_comentario/', AgregarComentario, name = 'crear_comentario'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
