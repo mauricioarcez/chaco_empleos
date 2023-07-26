@@ -205,7 +205,6 @@ a.subrayado{
   margin-top: 5%;
   color: #E0E0E0;
   font-size: 25px;
-  font-family: Lato;
   font-weight: 900;
   word-wrap: break-word;
 }
@@ -214,9 +213,67 @@ a.subrayado{
   color: #185FBE;
 }
 
+.contenedor_empleo{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
 .card_empleo{
-  column-count: 2;
-  column-gap: 20px;
+  display: inline-flex;
+  width: 75%; 
+  height: 100%; 
+  margin-left: 2rem;
+  padding: 1.4rem; 
+  background: #F5F5F5; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+  border-radius: 10px; 
+  border: 1px #C5C5C5 solid; 
+  gap: 1rem; 
+}
+
+.logo_empresa{
+  width: 7rem;
+  height: 7rem;
+  border-radius: 9999px;
+}
+
+.contenido_card_empleo{
+  width: 80%;
+  height: 90%;
+  position: relative;
+}
+.puesto{
+  top: 0px; 
+  position: absolute; 
+  color: #1B1C1E;
+  font-size: 1.6rem; 
+  font-weight: 700; 
+  word-wrap: break-word;
+}
+
+.empresa{
+  top: 34px; 
+  position: absolute; 
+  color: #1B1C1E;
+  font-size: 1.4rem; 
+  font-weight: 400; 
+  word-wrap: break-word;
+}
+
+.fecha_p{
+  top: 84px; 
+  position: absolute; 
+  color: gray;
+  font-size: 1.1rem; 
+  font-weight: 200; 
+  word-wrap: break-word;
+}
+.fecha_p a{
+  margin-left: 6rem;
+  font-size: 1.2rem;
 }
 
 

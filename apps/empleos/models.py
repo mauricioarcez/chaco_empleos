@@ -22,7 +22,8 @@ class Empresa(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     nombre = models.CharField(max_length=40)
     descripcion = models.TextField(blank=True, null=True)
-    Localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, null=True)
+    localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, null=True)
+    logo = models.ImageField(null=True, blank=True, upload_to='empleos', default='usuarios/usuario_default.png')
 
     def __str__(self):
         return self.nombre
@@ -44,7 +45,7 @@ class Empleo(models.Model):
 
 
     def __str__(self) -> str:
-        return self.titulo
+        return self.puesto
 
     class Meta:
         ordering = ('-fecha_publicacion',)

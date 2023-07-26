@@ -10,27 +10,34 @@
         <a href="{% url 'apps.empleos:agregar_empleo' %}">
             <div style="width: 100%; height: 100%; padding: 10px; background: #106035; border-radius: 15px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
                 <div style="width: 25px; height: 25px; border: 1px #E0E0E0 solid"></div>
-                <div style="color: #E0E0E0; font-size: 25px; font-family: Lato; font-weight: 900; word-wrap: break-word">Publicar empleo</div>
+                <div style="color: #E0E0E0; font-size: 25px; font-weight: 900; word-wrap: break-word">Publicar empleo</div>
             </div>
         </a>
     </div>
     <br>
      
-    {% for empleo in empleos %}
-        <a href="{% url 'apps.empleos:detalle_empleo' empleo.pk %}">
+    
+   {% for empleo in empleos %}
+        <div class="contenedor_empleo">
             <div class="card_empleo">
-                <div style="width: 100%; height: 100%; padding: 20px; background: #F5F5F5; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px; border: 1px #C5C5C5 solid; justify-content: center; align-items: center; gap: 13px; display: inline-flex">
-                    <img style="width: 100px; height: 100px; border-radius: 9999px" src="#" />
-                    <div style="width: 312px; height: 100px; position: relative">
-                        <div style="left: 0px; top: 0px; position: absolute; color: #0F0F0F; font-size: 25px; font-family: Lato; font-weight: 700; word-wrap: break-word">{{ empleo.puesto }}</div>
-                        <div style="left: 0px; top: 30px; position: absolute; color: #0F0F0F; font-size: 22px; font-family: Lato; font-weight: 400; word-wrap: break-word">{{ empleo.empresa }}</div>
-                        <div style="left: 0px; top: 74px; position: absolute; color: #0F0F0F; font-size: 22px; font-family: Lato; font-weight: 400; word-wrap: break-word">{{ empleo.fecha_publicacion }}</div>
+                <img class="logo_empresa" src="{{empleo.empresa.logo.url}}" alt="{{empleo.empresa}}"/>
+                <div class="contenido_card_empleo">
+                    <div class="puesto">
+                        {{ empleo.puesto }}    
+                    </div>
+                    <div class="empresa">
+                        {{ empleo.empresa }}
+                    </div>
+                    <div class="fecha_p">
+                        {{ empleo.fecha_publicacion }}
+                        <a href="{% url 'apps.empleos:detalle_empleo' empleo.pk %}">Ver mas</a>
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
         <br>
-    {% endfor %}
+     {% endfor %}
+   
 
 {% endblock %}
    
