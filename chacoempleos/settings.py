@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     # Apps propias
     'apps.usuarios',
     'apps.empleos',
-    
+    'apps.comentarios',
 ]
 
 MIDDLEWARE = [
