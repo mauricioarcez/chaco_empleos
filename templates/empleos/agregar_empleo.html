@@ -6,15 +6,15 @@
 {% endblock %}
 
 {% block contenido %}
-<div class="empleo">
-    <h2 id="titulo_empleo">Encuentra candidatos que se<br>acomoden a tus necesidades</h2>
-    <div class="conteiner">
-        <form enctype="multipart/form-data" class="form_empleo" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="publicar" type="submit">Publicar</button>
-        </form>
+    <div class="empleo">
+        <h2 id="titulo_empleo">Encuentra candidatos que se<br>acomoden a tus necesidades</h2>
+        <br>
+        <div class="conteiner">
+            <form enctype="multipart/form-data" class="form_empleo" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="publicar" type="submit">Publicar</button>
+            </form>
+        </div>
     </div>
-</div>
-
 {% endblock %}

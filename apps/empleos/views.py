@@ -2,8 +2,9 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.shortcuts import render
 
-from .models import Empleo
+from .models import Empleo,Categoria
 
 # Create your views here.
 
@@ -24,7 +25,19 @@ class ListaEmpleos(ListView):
     template_name = 'empleos/lista_empleos.html'
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
-    paginate_by = 10
+
+
+def ListaEmpleosPorCategoria(request, categoria):
+    categorias2 = Categoria.objects.filter(nombre=categoria)
+    empleos = Empleo.objects.filter(categoria=categorias2[0].id).order_by('fecha_publicacion')
+    categorias = Categoria.objects.all()
+    template_name = 'empleos/lista_empleos.html'
+    contexto = {
+        'empleos': empleos,
+        'categoria': categorias, 
+    }
+    return render(request, template_name, contexto)
+
     
 class DetalleEmpleo(DetailView):
     model = Empleo

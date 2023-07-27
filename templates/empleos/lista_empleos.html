@@ -5,28 +5,39 @@
 <title>Empleos</title>
 {% endblock %}
 
+
 {% block contenido %}
-    <div class="espaciado_nav"></div>  
-    {% for empleo in empleos %}
-  
-        <div class="contenedor_empleo">
-            <div class="card_empleo">
-                <img class="logo_empresa" src="{{empleo.empresa.logo.url}}" alt="{{empleo.empresa}}"/>
-                <div class="contenido_card_empleo">
-                    <div class="puesto">
-                        {{ empleo.puesto }}    
-                    </div>
-                    <div class="empresa">
-                        {{ empleo.empresa }}
-                    </div>
-                    <div class="fecha_p">
-                        {{ empleo.fecha_publicacion }}
-                        <a href="{% url 'apps.empleos:detalle_empleo' empleo.pk %}">Ver mas</a>
+    <div class="espaciado_nav"></div>
+    <div class="empleo-container">
+        {% for empleo in empleos %}
+            <div class="contenedor_empleo">
+                <div class="card_empleo">
+                    <img class="logo_empresa" src="{{empleo.empresa.logo.url}}" alt="{{empleo.empresa}}"/>
+                    <div class="contenido_card_empleo">
+                        <div class="puesto">
+                            {{ empleo.puesto }}    
+                        </div>
+                        <div class="empresa">
+                            {{ empleo.empresa }}
+                        </div>
+                        <div class="fecha_p">
+                            {{ empleo.fecha_publicacion }}
+                            <a href="{% url 'apps.empleos:detalle_empleo' empleo.pk %}">Ver mas</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br>
-     {% endfor %}
+            <br>
+        {% endfor %}
+    </div>
+    <br>
+    <div class="categorias">
+        <h3>Categorías:</h3>
+        <ul>
+            {% for categoria in categoria %}
+            <li><a href="{% url 'apps.empleos:lista_por_categoria' %}">{{ categoria.nombre }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
    
