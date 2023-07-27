@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Eliminar empleo</title>
+{% endblock %}
+
+
+{% block contenido %}
+    <div class="espaciado_nav"></div>
+    <h1>Eliminar empleo</h1>
+
+    <p>Seguro que desea eliminar el empleo?</p>
+
+    <form method="POST">{% csrf_token %}
+        <input type="submit" action="" value="Eliminar." />
+    </form>
+    <a href="{% url 'apps.empleos:mis_empleos' %}" class="btn btn-primary" style="font-size: small;">No, volver.</a>
+{% endblock %}

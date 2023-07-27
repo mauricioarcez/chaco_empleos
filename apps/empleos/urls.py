@@ -14,6 +14,7 @@ urlpatterns = [
     path('lista_por_categoria/<str:categoria>/',ListaEmpleosPorCategoria,name='lista_por_categoria'),
     path('detalle_empleo/<int:pk>/', DetalleEmpleo.as_view(), name='detalle_empleo'),
     path('editar_empleo/<int:pk>/', EditarEmpleo.as_view(), name='editar_empleo' ),
+    path('confirmar/<int:pk>/', EliminarEmpleo.as_view(), name='eliminar_empleo'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

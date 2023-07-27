@@ -63,5 +63,6 @@ class EditarEmpleo(UpdateView, LoginRequiredMixin):
 
 class EliminarEmpleo(DeleteView, LoginRequiredMixin):
     model = Empleo
-    template_name = ''
+    template_name = 'empleos/confirma_eliminar.html'
+    success_url = reverse_lazy('apps.empleos:mis_empleos')
     
