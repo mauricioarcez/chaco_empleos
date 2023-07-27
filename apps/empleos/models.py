@@ -4,7 +4,7 @@ from django.utils import timezone
 from apps.usuarios.models import Usuario
 # Create your models here.
 
-class Categoria(models.Model):
+class Categorias(models.Model):
     nombre = models.CharField(max_length=20, null=False)
 
     def __str__(self) -> str:
@@ -40,7 +40,7 @@ class Empleo(models.Model):
     fecha_publicacion = models.DateTimeField(default=timezone.now)
     modalidad = models.CharField(max_length=20)
     vacantes = models.IntegerField()
-    categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categorias,on_delete=models.CASCADE)
 
 
     def __str__(self) -> str:

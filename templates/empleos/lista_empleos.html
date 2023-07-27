@@ -32,10 +32,10 @@
     </div>
     <br>
     <div class="categorias">
-        <h3>Categorías:</h3>
+        <h3>Filtrar por :</h3>
         <ul>
-            {% for categoria in categoria %}
-            <li><a href="{% url 'apps.empleos:lista_por_categoria' %}">{{ categoria.nombre }}</a></li>
+            {% for i in categorias %}
+            <li><a href="{% url 'apps.empleos:lista_por_categoria' i.nombre %}">{{ i.nombre }}</a></li>
             {% endfor %}
         </ul>
     </div>

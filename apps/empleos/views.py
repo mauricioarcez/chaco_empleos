@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
 
-from .models import Empleo,Categoria
+from .models import Empleo,Categorias
 
 # Create your views here.
 
@@ -28,13 +28,13 @@ class ListaEmpleos(ListView):
 
 
 def ListaEmpleosPorCategoria(request, categoria):
-    categorias2 = Categoria.objects.filter(nombre=categoria)
-    empleos = Empleo.objects.filter(categoria=categorias2[0].id).order_by('fecha_publicacion')
-    categorias = Categoria.objects.all()
+    categorias2 = Categorias.objects.filter(nombre = categoria)
+    empleos = Empleo.objects.filter(categoria = categorias2[0].id).order_by('fecha_publicacion')
+    categorias = Categorias.objects.all()
     template_name = 'empleos/lista_empleos.html'
     contexto = {
         'empleos': empleos,
-        'categoria': categorias, 
+        'categorias': categorias,
     }
     return render(request, template_name, contexto)
 
