@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render
 
 from .models import Empleo,Categorias
+from .forms import EmpleoForm
 
 # Create your views here.
 
@@ -56,9 +57,9 @@ class DetalleEmpleo(DetailView):
     
 class EditarEmpleo(UpdateView, LoginRequiredMixin):
     model = Empleo
-    fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad','vacantes','categoria','localidad']
-    template_name = 'empleos/editar_empleo.html'
-    success_url = reverse_lazy('apps.empleos:empleos')
+    form_class = EmpleoForm
+    template_name = 'empleos/editar_empleos.html'
+    success_url = reverse_lazy('apps.empleos:mis_empleos')
 
 class EliminarEmpleo(DeleteView, LoginRequiredMixin):
     model = Empleo
