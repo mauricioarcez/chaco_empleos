@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Mis Empleos</title>
+{% endblock %}
+
+
+{% block contenido %}
+    <div class="espaciado_nav"></div>
+    <div class="empleo-container">
+        {% for empleo in empleos %}
+            <div class="contenedor_empleo">
+                <div class="card_empleo">
+                    <img class="logo_empresa" src="{{empleo.empresa.logo.url}}" alt="{{empleo.empresa}}"/>
+                    <div class="contenido_card_empleo">
+                        <div class="puesto">
+                            {{ empleo.puesto }}    
+                        </div>
+                        <div class="empresa">
+                            {{ empleo.empresa }}
+                            <p>Administrador: {{empleo.empresa.administrador}}</p>
+                        </div>
+                        <div class="fecha_p">
+                            {{ empleo.fecha_publicacion }}
+                            <a href="{% url 'apps.empleos:editar_empleo' empleo.pk %}">Editar</a>
+                            <a href="{% url 'apps.empleos:editar_empleo' empleo.pk %}">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+{% endblock %}
