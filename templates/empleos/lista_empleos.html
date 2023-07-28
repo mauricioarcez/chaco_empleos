@@ -8,16 +8,15 @@
 
 {% block contenido %}
     <div class="espaciado_nav"></div>
-    <form method="get">
-        <label for="categoria">Filtrar por categoría:</label>
-        <select name="categoria" id="categoria">
-            <option value="">Todas las categorías</option>
-            {% for categoria in categorias %}
-                <option value="{% url 'apps.empleos:lista_por_categoria' %}"></option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Filtrar">
-    </form>
+
+    <ul class="lista_categorias">
+        {% for categoria in categorias %}
+        <li class="categoria_item">
+            <a aria-current="page" href="{% url 'apps.empleos:lista_por_categoria' categoria.nombre %}">{{categoria.nombre}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
     <div class="empleo-container">
         {% for empleo in empleos %}
             <div class="contenedor_empleo">

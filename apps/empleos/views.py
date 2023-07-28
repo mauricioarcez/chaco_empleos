@@ -28,7 +28,15 @@ class ListaEmpleos(ListView):
     template_name = 'empleos/lista_empleos.html'
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        categorias = Categorias.objects.all()
+        context['categorias'] = categorias
+        return context
+
     
+
 class ListaMisEmpleos(LoginRequiredMixin, ListView):
     model = Empleo
     template_name = 'empleos/mis_empleos.html'
@@ -37,10 +45,12 @@ class ListaMisEmpleos(LoginRequiredMixin, ListView):
     
     def get_queryset(self):
         return Empleo.objects.filter(empresa__administrador=self.request.user)
+    
+
 
 def ListaEmpleosPorCategoria(request, categoria):
     categorias2 = Categorias.objects.filter(nombre = categoria)
-    empleos = Empleo.objects.filter(categoria = categorias2[0].id)
+    empleos = Empleo.objects.filter(categoria = categorias2[0].id).order_by('fecha_publicacion')
     categorias = Categorias.objects.all()
     template_name = 'empleos/lista_empleos.html'
     contexto = {

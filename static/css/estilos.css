@@ -226,6 +226,21 @@ a.subrayado{
   width: 100%;
 }
 
+.lista_categorias{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categoria_item{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.categoria_item .a{
+  text-decoration: none;
+}
+
 .empleo-container{
   column-count: 2;
   column-gap: 10px;
