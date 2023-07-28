@@ -31,13 +31,14 @@
         {% endfor %}
     </div>
     <br>
-    <div class="categorias">
-        <h3>Filtrar por :</h3>
-        <ul>
-            {% for i in categorias %}
-            <li><a href="{% url 'apps.empleos:lista_por_categoria' i.nombre %}">{{ i.nombre }}</a></li>
+    <form method="get">
+        <label for="categoria">Filtrar por categoría:</label>
+        <select name="categoria_id" id="categoria">
+            <option value="">Todas las categorías</option>
+            {% for categoria in categorias %}
+                <option value="{% url 'apps.empleos:lista_por_categoria' categorias.nombre %}">{{ categorias.nombre }}</option>
             {% endfor %}
-        </ul>
-    </div>
+        </select>
+        <input type="submit" value="Filtrar">
+    </form>
 {% endblock %}
-   

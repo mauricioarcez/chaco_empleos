@@ -10,6 +10,10 @@ class Categorias(models.Model):
     def __str__(self) -> str:
         return self.nombre
 
+    class Meta:
+        db_table = 'categorias'
+
+
 class Localidad(models.Model):
     nombre = models.CharField(max_length=20)
 

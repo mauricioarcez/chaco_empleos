@@ -40,7 +40,7 @@ class ListaMisEmpleos(LoginRequiredMixin, ListView):
 
 def ListaEmpleosPorCategoria(request, categoria):
     categorias2 = Categorias.objects.filter(nombre = categoria)
-    empleos = Empleo.objects.filter(categoria = categorias2[0].id).order_by('fecha_publicacion')
+    empleos = Empleo.objects.filter(categoria = categorias2[0].id)
     categorias = Categorias.objects.all()
     template_name = 'empleos/lista_empleos.html'
     contexto = {
