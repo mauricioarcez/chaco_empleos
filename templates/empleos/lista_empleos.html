@@ -9,14 +9,15 @@
 {% block contenido %}
     <div class="espaciado_nav"></div>
 
-   <ul class="lista_categorias">
-        {% for categoria in categorias %}
-        <li class="categoria_item">
-            <a aria-current="page" href="{% url 'apps.empleos:lista_por_categoria' categoria.nombre %}">{{categoria.nombre}}</a>
-        </li>
-        {% endfor %}
-    </ul>
-    
+    <div class="categorias">
+        <ul>
+            {% for categoria in categorias %}
+            <li>
+                <a aria-current="page" href="{% url 'apps.empleos:lista_por_categoria' categoria.nombre %}">{{categoria.nombre}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
     <div class="empleo-container">
         {% for empleo in empleos %}
