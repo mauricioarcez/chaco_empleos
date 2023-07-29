@@ -8,51 +8,51 @@
 {% block contenido %}
 <div style="background-image: url('{% static 'img/registrar.svg' %}'); background-repeat: no-repeat; background-size: cover; background-position: top;">
 <div class="container" >
-    <h1 style="color: #1E1E1E;font-family: Lato;font-size: 25;font-style: normal;font-weight: 700;line-height: normal;">Te damos la bienvenida!</h1>
-    <form action="{% url 'inicio' %}" method="post">
+    <h1 style="color: #1E1E1E;font-family: Lato;font-size: 25;font-style: normal;font-weight: 700;line-height: normal; padding-top: 5rem;">Te damos la bienvenida!</h1>
+    <form action="{% url 'apps.usuarios:iniciar_sesion' %}" method="post">
         {% csrf_token %}
     <div class="form-group">
-        <label class="form-label"  style="color: #1B1C1E; font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Nombre</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Nombre</label>
         {{ form.nombre }}
     </div>
     <div class="form-group">
-        <label class="form-label" style="color: #1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Apellido</label>
+        <label class="form-label" style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Apellido</label>
         {{ form.apellido }}
     </div>
     <div class="form-group">
-        <label class="form-label" for="typeEmailX-2" style="color: #1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Email</label>
+        <label class="form-label" for="typeEmailX-2" style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Email</label>
         {{ form.email }}
     </div>
     <div class="form-group">
-        <label class="form-label"  style="color:#1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Usuario</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Usuario</label>
         {{ form.username }}
     </div>
     <div class="form-group">
-        <label class="form-label"  style="color:#1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Contrasena</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Contrasena</label>
         {{ form.password1 }}
     </div>
     <div class="form-group">
-        <label class="form-label"  style="color:#1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Confirmar contrasena</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Confirmar contrasena</label>
         {{ form.password2 }}
     </div>
     <div class="form-group">
-        <label class="form-label"  style="color:#1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Genero</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Genero</label>
         {{ form.genero }}
     </div>
     <div class="form-group">
-        <label class="form-label" for="typeEmailX-2" style="color: #1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Localidad</label>
+        <label class="form-label" for="typeEmailX-2" style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Localidad</label>
         {{ form.localidad }}
     </div>
     <div class="form-group">
-        <label class="form-label"  style="color:#1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">DNI</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">DNI</label>
         {{ form.dni }}
     </div>
     <div class="form-group">
-        <label class="form-label"  style="color:#1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Fecha de nacimiento</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Fecha de nacimiento</label>
         {{ form.fecha_nacimiento }}
     </div>
     <div class="form-group">
-        <label class="form-label"  style="color:#1B1C1E;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Imagen</label>
+        <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Imagen</label>
         {{ form.imagen }}
     </div>
     <hr class="my-1">
@@ -61,8 +61,8 @@
     </div>
     </form>
     <hr class="my-2">
-    <div style="color:#1B1C1E;text-align: center;font-family: Lato;font-size: 25px;font-style: normal;font-weight: 400;line-height: normal;">
-        <p style="color:#1B1C1E;">Ya tienes una cuenta</p>
+    <div style="color: #000;text-align: center;font-family: Lato;font-size: 25px;font-style: normal;font-weight: 400;line-height: normal;">
+        <p style="color: #000;">Ya tienes una cuenta</p>
         <a href="{% url 'apps.usuarios:iniciar_sesion' %}"style="color: #185FBE;" class='subrayado'>Ingresar</a>
 
     </div>

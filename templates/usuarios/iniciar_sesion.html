@@ -2,37 +2,57 @@
 {% load static %}
 
 {% block titulo %}
-<title>Iniciar Sesion</title>
+<title>Inicia Sesion</title>
 {% endblock %}
 
 {% block contenido %}
-<div class="inicio_sesion">
+<div style="background-image: url('{% static 'img/login.svg' %}'); background-repeat: no-repeat; background-size: cover; background-position: top;">
+<h1 style="color: #1E1E1E;font-family: Lato;font-size: 50px;font-style: normal;font-weight: 300;line-height: normal;text-align: center; padding-top:5rem; padding-bottom:1rem;" >Bienvenido nuevamente!</h1>
+<div style="text-align: center; height: 100%; margin: 0; display: flex; justify-content: center; align-items: center;" >
+<div class="container">
     <form method="post">{% csrf_token %}
-        <section style="margin-top: 5%;" data-bs-version="5.1" class="form4 cid-tf6M1H8RDD mbr-fullscreen"
-            id="form4-11">
-            <div class="container">
-                <div class="row content-wrapper justify-content-center">
-                    <div class="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">
-                        <div class="dragArea row">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <h1 class="mbr-section-title mb-4 display-2"><strong>Iniciar sesión</strong></h1>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <p class="mbr-text mbr-fonts-style mb-4 display-7">Ingrese su usuario y contraseña:
-                                </p>
-                            </div>
-                            {{form.as_p}}
-                            <input type="submit" value="Iniciar sesión">
-                        </div>
-                    </div>
-                    <div class="col-lg-7 offset-lg-1 col-12">
-                        <div class="image-wrapper">
-                            <img class="w-75" src="{% static 'img/inicio_sesion.jpg' %}" alt="">
-                        </div>
-                    </div>
+        <section>
+            <div>
+                <div>
+                    <label class="form-label" for="inputUsuario" style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Nombre de usuario</label>
+                     <input type="text" id="inputUsuario" class="form-control form-control-lg" style="border-radius: 15px;border: 1px solid #8C8C8C;background: #F0F0F0;" />
+                </div>                              
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="typePasswordX-2" style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Contraseña</label>
+                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" style="border-radius: 15px;border: 1px solid #8C8C8C;background: #F0F0F0;"/>
+                </div>
+                    <button class="btn btn-primary btn-lg btn-block" style="border-radius: 15px;background: #106035;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);" type="submit">Iniciar Sesion</button>
+                                          
+                    <hr class="my-5">
+
+                <div>
+                    <button type="submit" style="display: inline-flex;padding: 10px 20px;justify-content: center;align-items: center;gap: 10px;color: #185FBE;font-family: Lato;font-size: 25px;font-style: normal;font-weight: 400;line-height: normal; border-radius: 15px;border: 1px solid #000;background: #F0F0F0;"><i class="fab fa-google me-2"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="34" viewBox="0 0 33 34" fill="none">
+                                                <mask id="mask0_1_20" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="34">
+                                                <path d="M32.6163 13.814H16.8837V20.3372H25.9395C25.0953 24.4814 21.5651 26.8605 16.8837 26.8605C11.3581 26.8605 6.90698 22.4093 6.90698 16.8837C6.90698 11.3581 11.3581 6.90698 16.8837 6.90698C19.2628 6.90698 21.4116 7.75116 23.1 9.13256L28.0116 4.22093C25.0186 1.61163 21.1814 0 16.8837 0C7.52093 0 0 7.52093 0 16.8837C0 26.2465 7.52093 33.7674 16.8837 33.7674C25.3256 33.7674 33 27.6279 33 16.8837C33 15.886 32.8465 14.8116 32.6163 13.814Z" fill="white"/>
+                                                </mask>
+                                                <g mask="url(#mask0_1_20)">
+                                                <path d="M-1.53491 26.8603V6.90685L11.5116 16.8836L-1.53491 26.8603Z" fill="#FBBC05"/>
+                                                </g>
+                                                <mask id="mask1_1_20" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="34">
+                                                <path d="M32.6163 13.814H16.8837V20.3372H25.9395C25.0953 24.4814 21.5651 26.8605 16.8837 26.8605C11.3581 26.8605 6.90698 22.4093 6.90698 16.8837C6.90698 11.3581 11.3581 6.90698 16.8837 6.90698C19.2628 6.90698 21.4116 7.75116 23.1 9.13256L28.0116 4.22093C25.0186 1.61163 21.1814 0 16.8837 0C7.52093 0 0 7.52093 0 16.8837C0 26.2465 7.52093 33.7674 16.8837 33.7674C25.3256 33.7674 33 27.6279 33 16.8837C33 15.886 32.8465 14.8116 32.6163 13.814Z" fill="white"/>
+                                                </mask>
+                                                <g mask="url(#mask1_1_20)">
+                                                <path d="M-1.53491 6.90685L11.5116 16.8836L16.8837 12.2022L35.3023 9.20917V-1.53501H-1.53491V6.90685Z" fill="#EA4335"/>
+                                                </g>
+                                                <mask id="mask2_1_20" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="34">
+                                                <path d="M32.6163 13.814H16.8837V20.3372H25.9395C25.0953 24.4814 21.5651 26.8605 16.8837 26.8605C11.3581 26.8605 6.90698 22.4093 6.90698 16.8837C6.90698 11.3581 11.3581 6.90698 16.8837 6.90698C19.2628 6.90698 21.4116 7.75116 23.1 9.13256L28.0116 4.22093C25.0186 1.61163 21.1814 0 16.8837 0C7.52093 0 0 7.52093 0 16.8837C0 26.2465 7.52093 33.7674 16.8837 33.7674C25.3256 33.7674 33 27.6279 33 16.8837C33 15.886 32.8465 14.8116 32.6163 13.814Z" fill="white"/>
+                        </svg>  
+                        Iniciar sesion con Google
+                    </button>
                 </div>
             </div>
         </section>
     </form>
+    <hr class="my-5">
+    <div style="color: #000;text-align: center;font-family: Lato;font-size: 25px;font-style: normal;font-weight: 400;line-height: normal;">
+    <p style="color: #000;">¿Todavía no tienes una cuenta?</p>
+    <a href="{% url 'apps.usuarios:registrar' %}" style="color: #185FBE;" class='subrayado'>Registrarse</a>
+    </div>
 </div>
 {% endblock contenido %}

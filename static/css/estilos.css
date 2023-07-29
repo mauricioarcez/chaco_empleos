@@ -160,16 +160,12 @@ a.subrayado{
 /* ----- ESTILOS DEL FOOTER ---- */
 
 /* ----- REGISTRAR USUARIO ---- */
-.container {
-      margin-top: 80px;
-      /* Ajusta el valor según sea necesario para dejar suficiente espacio entre el nav y el formulario */
-      max-width: 500px;
-      /* Ajusta el valor para reducir el ancho máximo del formulario */
-      margin-left: auto;
-      margin-right: auto;
-}
-
-
+ .container {
+   max-width: 500px;
+   /* Ajusta el valor para reducir el ancho máximo del formulario */
+   margin-left: auto;
+   margin-right: auto;
+ }
 
 /* ----- AGREGAR_EMPLEO.html ---- */
 .empleo {
