@@ -237,8 +237,9 @@ a.subrayado{
   list-style: none;
   margin: 10px;
   padding: 10px;
-  border: 1px solid #000;
+  border: 1px solid;
   border-radius: 10px;
+  background-color: #C5C5C5;
 }
 
 .categorias li a {
