@@ -2,20 +2,21 @@
 {% load static %}
 
 {% block titulo %}
-<title>Empleos</title>
+<title>{{ categoria_seleccionada }} - Empleos</title>
 {% endblock %}
 
 
 {% block contenido %}
     <div class="espaciado_nav"></div>
 
-   <ul class="lista_categorias">
-        {% for categoria in categorias %}
-        <li class="categoria_item">
-            <a aria-current="page" href="{% url 'apps.empleos:lista_por_categoria' categoria.nombre %}">{{categoria.nombre}}</a>
-        </li>
-        {% endfor %}
-    </ul>
+   <div class="categorias">
+        <h3>Categorías:</h3>
+        <ul>
+            {% for i in categoria %}
+            <li><a href="{% url 'apps.empleos:lista_por_categoria' %}">{{ categorias.nombre }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
     
 
     <div class="empleo-container">

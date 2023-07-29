@@ -226,18 +226,18 @@ a.subrayado{
   width: 100%;
 }
 
-.lista_categorias{
+.lista_categorias {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.categoria_item{
+.categoria_item {
   display: inline-block;
   margin-right: 10px;
 }
 
-.categoria_item .a{
+.categoria_item .a {
   text-decoration: none;
 }
 
@@ -329,9 +329,6 @@ a.eliminar{
   padding-left: 0.8rem;
 }
 
-.categorias{
-  margin-bottom: 100px;
-}
 
 /* ----- DETALLES DE EMPLEOS ---- */
 .comentarios_card{

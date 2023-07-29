@@ -46,8 +46,6 @@ class ListaMisEmpleos(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Empleo.objects.filter(empresa__administrador=self.request.user)
     
-
-
 def ListaEmpleosPorCategoria(request, categoria):
     categorias2 = Categorias.objects.filter(nombre = categoria)
     empleos = Empleo.objects.filter(categoria = categorias2[0].id).order_by('fecha_publicacion')
@@ -58,7 +56,6 @@ def ListaEmpleosPorCategoria(request, categoria):
         'categorias': categorias,
     }
     return render(request, template_name, contexto)
-
     
 class DetalleEmpleo(DetailView):
     model = Empleo
