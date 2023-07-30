@@ -5,15 +5,25 @@
 <title>Eliminar empleo</title>
 {% endblock %}
 
-
 {% block contenido %}
     <div class="espaciado_nav"></div>
-    <h1>Eliminar empleo</h1>
-
-    <p>Seguro que desea eliminar el empleo?</p>
-
-    <form method="POST">{% csrf_token %}
-        <input type="submit" action="" value="Eliminar." />
-    </form>
-    <a href="{% url 'apps.empleos:mis_empleos' %}" class="btn btn-primary" style="font-size: small;">No, volver.</a>
+     <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card w-75">
+                    <div class="card-header">
+                        <h4 class="card-title">Eliminar empleo</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">¿Seguro que desea eliminar el empleo?</p>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                        <a href="{% url 'apps.empleos:mis_empleos' %}" class="btn btn-secondary mt-2" style="font-size: small;">Cancelar y volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

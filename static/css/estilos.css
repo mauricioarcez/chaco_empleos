@@ -42,8 +42,7 @@ nav {
   line-height: normal;
 }
 .nav_secciones button{
-  height: 2rem;
-  width: 7rem;
+  padding: 7px;
   border-radius: 0.7rem;
   align-items: center;
   justify-content: center;
@@ -55,7 +54,6 @@ nav {
   font-weight: 600;
   line-height: normal;
   display: inline-flex;
-  text-shadow: 1px 1px 0px #1B1C1E;
   border: 0.1px solid #2b2c2f;
   margin-right: 1.3rem;
 }
@@ -75,13 +73,15 @@ a.subrayado{
   flex-direction: column;
   position: absolute;
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
   z-index: 0;
 }
 .contenido_arriba{
   width: 100%;
   display: flex;
   position: relative;
-  height: 60vh;
+  height: 50vh;
 }
 .svg_azul{
   position: absolute;
@@ -98,11 +98,11 @@ a.subrayado{
   position: relative;
   float: left;
   z-index: 1;
-  top: 8rem;
+  top: 6rem;
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-left: 1.5rem;
+  margin-left: 2rem;
   padding: 1rem;
 }
 .titulo h1{
@@ -116,16 +116,13 @@ a.subrayado{
 
 .titulo button{
   border: 1px solid #2b2c2f;
-  width: 6rem;
-  height: 2rem;
+  padding: 7px;
   position: absolute;
-  text-shadow: 1px 1px 0px #303236;
   background-color: #158449;
   z-index: 1;
   border-radius: 0.5rem;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: inline-flex;
-  padding: 0.9375rem;
   justify-content: center;
   align-items: center;
   color: #FFF;
@@ -138,15 +135,47 @@ a.subrayado{
 
 .imagen_inicio{
   position: relative;
-  top: 7.5rem;
+  top: 4rem;
   right: 5.3rem;
   float: right;
   width: 500px;
   height: 500px;
 }
 
+.buscador_contenedor{
+  width: 100%;
+  height: 30vh;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  top: 64%;
+}
+.buscador{
+  background-color: #D9D9D9;
+  position: relative;
+  width: 60%;
+  height: 35%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 0.7rem;
+}
+.buscador_contenedor button{
+  padding: 8px;
+  border: 1px solid #2b2c2f;
+  background-color: #13417E;
+  border-radius: 0.93rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #FFF;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 600;
+}
 .svg_verde{
   position: relative;
+  top: 6rem;
   z-index: 0;
   width: 100%;
   height: 20rem;
@@ -336,7 +365,7 @@ a.eliminar{
 .contenedor_comentarios{
   width: 35%;
   gap: 20px;
-  height: 90vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   float: left;
@@ -364,7 +393,7 @@ a.eliminar{
 .el_detalle{
   margin-right: 2%;
   width: 57%;
-  height: fit-content;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

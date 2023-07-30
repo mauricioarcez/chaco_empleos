@@ -13,14 +13,16 @@
                 <div class="card-header">
                     <h4 class="card-title text-center">Sección de comentarios</h4>
                 </div>
-                <div class="card-body" style="min-height:41vh; max-height: 41vh; overflow-y: scroll;">
+                <div class="card-body" style="min-height:41vh; max-height: 40vh; overflow-y: scroll;">
                     {% if comentarios %}
                     <ul class="list-group">
                         {% for comentario in comentarios %}
                        <li class="list-group-item">
                             <strong>{{ comentario.usuario.username }}</strong>: {{ comentario.texto }}
+                            <br>
+                            <small class="text-muted">{{ comentario.fecha }}</small>
                             {% if request.user == comentario.usuario %}
-                            <a href="{% url 'apps.comentarios:eliminar_comentario' comentario.pk %}" style="color:red; padding-left:3rem;">Eliminar</a>
+                            <a href="{% url 'apps.comentarios:eliminar_comentario' comentario.pk %}" style="color: red; padding-left: 10rem">Eliminar</a>
                             {% endif %}
                         </li>
                         {% endfor %}
