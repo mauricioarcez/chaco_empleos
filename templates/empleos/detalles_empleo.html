@@ -17,8 +17,11 @@
                     {% if comentarios %}
                     <ul class="list-group">
                         {% for comentario in comentarios %}
-                        <li class="list-group-item">
+                       <li class="list-group-item">
                             <strong>{{ comentario.usuario.username }}</strong>: {{ comentario.texto }}
+                            {% if request.user == comentario.usuario %}
+                            <a href="{% url 'apps.comentarios:eliminar_comentario' comentario.pk %}" style="color:red; padding-left:3rem;">Eliminar</a>
+                            {% endif %}
                         </li>
                         {% endfor %}
                     </ul>
@@ -30,9 +33,16 @@
                 </div>
             </div>
         </div>
+        {% if user.is_authenticated %}
         <div class="comentar_card">
             {% include 'comentarios/crear_comentario.html' %}
         </div>
+        {% else %}
+        <div class="comentar_card d-flex flex-column align-items-center">
+            <h4>Inicia sesion para comentar...</h4>
+            <a href="{% url 'apps.usuarios:iniciar_sesion' %}" class="btn btn-success">Iniciar sesión</a>
+        </div>
+        {% endif %}
     </div>
     </div>
     <div class="el_detalle">

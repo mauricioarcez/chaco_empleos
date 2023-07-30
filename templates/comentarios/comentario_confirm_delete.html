@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Eliminar Comentario</title>
+{% endblock %}
+
+{% block contenido %}
+   <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card text-center" style="width: 400px;">
+        <div class="card-header">
+            <h5 class="card-title">Eliminar Comentario</h5>
+        </div>
+        <div class="card-body">
+            <p>¿Estás seguro de que deseas eliminar este comentario?</p>
+            <p><strong>{{ object.texto }}</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Eliminar">
+                <a href="{% url 'apps.empleos:detalle_empleo' pk=object.empleo.pk %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

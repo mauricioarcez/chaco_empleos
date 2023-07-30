@@ -60,9 +60,9 @@ def ListaEmpleosPorCategoria(request, categoria):
     }
     return render(request, template_name, contexto)
     
-def detalle_empleo(request, id):
-    empleo = Empleo.objects.get(id=id)
-    comentarios = Comentario.objects.filter(empleo=id)
+def detalle_empleo(request, pk):
+    empleo = Empleo.objects.get(pk=pk)
+    comentarios = Comentario.objects.filter(empleo=pk)
     form = ComentarioForm(request.POST)
 
     if form.is_valid():
