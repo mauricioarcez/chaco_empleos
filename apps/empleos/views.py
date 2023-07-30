@@ -53,8 +53,19 @@ class ListaMisEmpleos(LoginRequiredMixin, ListView):
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
     
-    def get_queryset(self):
-        return Empleo.objects.filter(empresa__administrador=self.request.user)
+    def get_context_data(self):
+        context = super().get_context_data()
+        categorias = Categorias.objects.all()
+        context['categorias'] = categorias
+        return context
+
+    def get_queryset(self) -> QuerySet[Any]:
+        query = self.request.GET.get('buscador')
+        queryset = Empleo.objects.filter(empresa__administrador=self.request.user)
+
+        if query:
+            queryset = queryset.filter(puesto__icontains=query)
+        return queryset.order_by('puesto')
     
 def ListaEmpleosPorCategoria(request, categoria):
     categorias2 = Categorias.objects.filter(nombre = categoria)
