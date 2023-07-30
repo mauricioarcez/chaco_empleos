@@ -1,4 +1,5 @@
 from typing import Any
+from django.shortcuts import render, redirect
 from django.db.models.query import QuerySet
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -8,6 +9,7 @@ from django.shortcuts import render
 
 from .models import Empleo,Categorias
 from .forms import EmpleoForm
+from apps.comentarios.forms import ComentarioForm
 
 # Create your views here.
 
@@ -62,6 +64,17 @@ class DetalleEmpleo(DetailView):
     template_name = 'empleos/detalles_empleo.html'
     context_object_name = 'empleo'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        empleo = context['empleo']
+        form = ComentarioForm(initial={'empleo': empleo})
+        context['form'] = form
+
+        comentarios = empleo.comentario_set.all()
+        context['comentarios'] = comentarios
+        return context
+
+ 
 class EditarEmpleo(UpdateView, LoginRequiredMixin):
     model = Empleo
     form_class = EmpleoForm

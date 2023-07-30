@@ -7,9 +7,31 @@
 
 {% block contenido %}
     <div class="espaciado_nav"></div>  
-
-    <div class="comentarios_card">
-        <h3>seccion de comentarios</h3>
+    <div class="contenedor_comentarios">
+        <div class="comentarios_card">  
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Sección de comentarios</h4>
+                </div>
+                <div class="card-body overflow-auto" style="max-height: 300px;">
+                    {% if comentarios %}
+                    <ul class="list-group">
+                        {% for comentario in comentarios %}
+                        <li class="list-group-item">
+                            <strong>{{ comentario.usuario.username }}</strong>: {{ comentario.texto }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p class="text-center">No hay comentarios en este empleo.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="comentar_card">
+            {% include 'comentarios/crear_comentario.html' %}
+        </div>
+    </div>
     </div>
     <div class="el_detalle">
         <div class='card_detalle'>

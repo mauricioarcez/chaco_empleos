@@ -1,20 +1,4 @@
-<div class="row justify-content-md-center ">
-    <div class="col-md-6">
-        <div class="list-group-item gap-3 py-3" aria-current="true">
-            <form method="POST" enctype="multipart/form-data">{%csrf_token%}
-                <div>
-                    {{form.as_p}}
-                </div>
-                {% if user.is_authenticated %}
-                <input class="btn btn-outline-secondary" type="submit" value="Comentar" />
-                {% else %}
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    Comentar
-                </button>
-                {% endif %}
-            </form>
-        </div>
-    </div>
-</div>
-
+<form method="POST" enctype="multipart/form-data">{%csrf_token%}
+    {{form.as_p}}
+    <input class="btn btn-outline-secondary" type="submit" value="Comentar" />
+</form>
