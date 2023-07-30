@@ -9,6 +9,11 @@
 {% block contenido %}
     <div class="espaciado_nav"></div>
 
+    <form method="GET" style="display: flex; flex: 1; justify-content: center; width:100%;">
+        <input type="text" name="buscador" placeholder="   Buscar empleo..." style="width:60%; border-radius: 30px; border: 1px solid #C5C5C5; box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);"/>
+        <button type="submit" class="btn btn-primary"style="background-color:#13417E; color: white; margin-left: 10px; border-radius: 30px;">Buscar</button>
+    </form>
+
     <div class="categorias">
         <ul>
             {% for categoria in categorias %}
@@ -18,6 +23,7 @@
             {% endfor %}
         </ul>
     </div>
+    <br>
 
     <div class="empleo-container">
         {% for empleo in empleos %}

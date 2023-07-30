@@ -38,6 +38,13 @@ class ListaEmpleos(ListView):
         context['categorias'] = categorias
         return context
 
+    def get_queryset(self) -> QuerySet[Any]:
+        query = self.request.GET.get('buscador')
+        queryset = super().get_queryset()
+
+        if query:
+            queryset = queryset.filter(puesto__icontains=query)
+        return queryset.order_by('puesto')
     
 
 class ListaMisEmpleos(LoginRequiredMixin, ListView):
