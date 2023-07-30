@@ -9,7 +9,7 @@
 <div style="background-image: url('{% static 'img/registrar.svg' %}'); background-repeat: no-repeat; background-size: cover; background-position: top;">
 <div class="container" >
     <h1 style="color: #1E1E1E;font-family: Lato;font-size: 25;font-style: normal;font-weight: 700;line-height: normal; padding-top: 5rem;">Te damos la bienvenida!</h1>
-    <form action="{% url 'apps.usuarios:iniciar_sesion' %}" method="post">
+    <form method="post">
         {% csrf_token %}
     <div class="form-group">
         <label class="form-label"  style="color: #000;font-family: Lato;font-size: 22px;font-style: normal;font-weight: 400;line-height: normal;">Nombre</label>

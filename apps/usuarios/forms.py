@@ -57,10 +57,3 @@ class RegistrarUsuarioForm(UserCreationForm):
                 'style': 'max-width: 300px; border-radius: 15px; border: 1px solid #8C8C8C; background: #F0F0F0;',
             })
         }
-    @transaction.atomic
-    def save(self):
-        user = super().save(commit=False)
-        user.is_superuser = False
-        user.is_staff = False
-        user.save()
-        return user
