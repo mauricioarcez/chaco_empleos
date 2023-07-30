@@ -13,7 +13,7 @@
                 <div class="card-header">
                     <h4 class="card-title text-center">Sección de comentarios</h4>
                 </div>
-                <div class="card-body" style="max-height: 41vh; overflow-y: scroll;">
+                <div class="card-body" style="min-height:41vh; max-height: 41vh; overflow-y: scroll;">
                     {% if comentarios %}
                     <ul class="list-group">
                         {% for comentario in comentarios %}
@@ -23,7 +23,9 @@
                         {% endfor %}
                     </ul>
                     {% else %}
-                    <p class="text-center">No hay comentarios en este empleo.</p>
+                    <div class="d-flex align-items-center justify-content-center" style="height: 35vh;">
+                        <h5 class="text-center">No hay comentarios en este empleo.</h5>
+                    </div>
                     {% endif %}
                 </div>
             </div>

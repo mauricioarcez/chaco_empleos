@@ -351,11 +351,15 @@ a.eliminar{
   overflow: hidden;
 }
 .comentar_card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 30vh;
   border-radius: 0.625rem;
   background: #F4F4F4;
   box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow-y: scroll;
 }
 .el_detalle{
   margin-right: 2%;
