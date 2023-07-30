@@ -344,14 +344,15 @@ a.eliminar{
 }
 .comentarios_card{
   width: 100%;
-  height: 65vh;
+  height: 50vh;
   border-radius: 0.625rem;
   background: #F4F4F4;
   box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 .comentar_card{
   width: 100%;
-  height: 20vh;
+  height: 30vh;
   border-radius: 0.625rem;
   background: #F4F4F4;
   box-shadow: -6px 6px 4px 0px rgba(0, 0, 0, 0.25);

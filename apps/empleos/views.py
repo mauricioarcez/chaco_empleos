@@ -10,6 +10,7 @@ from django.shortcuts import render
 from .models import Empleo,Categorias
 from .forms import EmpleoForm
 from apps.comentarios.forms import ComentarioForm
+from apps.comentarios.models import Comentario
 
 # Create your views here.
 
@@ -59,20 +60,28 @@ def ListaEmpleosPorCategoria(request, categoria):
     }
     return render(request, template_name, contexto)
     
-class DetalleEmpleo(DetailView):
-    model = Empleo
-    template_name = 'empleos/detalles_empleo.html'
-    context_object_name = 'empleo'
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        empleo = context['empleo']
-        form = ComentarioForm(initial={'empleo': empleo})
-        context['form'] = form
+def detalle_empleo(request, id):
+    empleo = Empleo.objects.get(id=id)
+    comentarios = Comentario.objects.filter(empleo=id)
+    form = ComentarioForm(request.POST)
 
-        comentarios = empleo.comentario_set.all()
-        context['comentarios'] = comentarios
-        return context
+    if form.is_valid():
+        if request.user.is_authenticated:
+            aux = form.save(commit=False)
+            aux.empleo = empleo
+            aux.usuario = request.user
+            aux.save()
+            form = ComentarioForm()
+        else:
+            return redirect('apps.usuarios:iniciar_sesion')
+
+    contexto = {
+        'empleo': empleo,
+        'form': form,
+        'comentarios': comentarios,
+    }
+    template_name = 'empleos/detalles_empleo.html'
+    return render(request, template_name, contexto)
 
  
 class EditarEmpleo(UpdateView, LoginRequiredMixin):

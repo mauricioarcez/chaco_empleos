@@ -5,17 +5,12 @@ from .models import Comentario
 
 # Create your views here.
 def AgregarComentario(request):
-    if request.method == 'POST':
-        form = ComentarioForm(request.POST)
-        if form.is_valid():
-            comentario = form.save()
-            return redirect('empleos:detalle_empleo', pk=comentario.empleo.pk)
-    else:
-        form = ComentarioForm()
-        
+    form = ComentarioForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+
     contexto = {
         'form': form,
     }
-    
     template_name = 'comentarios/crear_comentario.html'
     return render(request, template_name, contexto)
