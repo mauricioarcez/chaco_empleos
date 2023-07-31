@@ -1,11 +1,12 @@
 from typing import Any
 from django.shortcuts import render, redirect
 from django.db.models.query import QuerySet
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from .models import Empleo,Categorias
 from .forms import EmpleoForm
@@ -32,9 +33,9 @@ class ListaEmpleos(ListView):
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        categorias = Categorias.objects.filter(empleo__empresa__administrador=self.request.user).distinct()
+    def get_context_data(self):
+        context = super().get_context_data()
+        categorias = Categorias.objects.all()
         context['categorias'] = categorias
         return context
 
@@ -53,10 +54,13 @@ class ListaMisEmpleos(LoginRequiredMixin, ListView):
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
     
-    def get_context_data(self):
-        context = super().get_context_data()
-        categorias = Categorias.objects.all()
-        context['categorias'] = categorias
+    @login_required
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            user_empresas = self.request.user.empresa_set.all()
+            categorias = Categorias.objects.filter(empleo__empresa__in=user_empresas).distinct()
+            context['categorias'] = categorias
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
