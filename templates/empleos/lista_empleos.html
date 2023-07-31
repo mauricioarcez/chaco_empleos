@@ -14,7 +14,12 @@
         <button type="submit" class="btn btn-primary"style="background-color:#13417E; color: white; margin-left: 10px; border-radius: 30px;">Buscar</button>
     </form>
 
-    <div class="categorias">
+    <form method="GET" action="{% url 'apps.empleos:ordenar_empleo' %}"  style="display: flex; flex: 1; justify-content: center; width:100%;margin: 10px; padding:10px;">
+        <button class="btn-primary" name="orden" type="submit" value='fecha' style="background-color:#13417E; color: white; margin-left: 10px; border-radius: 30px; padding:6px; font-size:0.8rem;">Listar por fecha</button>
+        <button class="btn-primary" name="orden" type="submit" value="salario" style="background-color:#13417E; color: white; margin-left: 10px; border-radius: 30px; padding:6px; font-size:0.8rem;">Listar por salario</button>
+    </form>
+    
+        <div class="categorias">
         <ul>
             {% for categoria in categorias %}
             <li>

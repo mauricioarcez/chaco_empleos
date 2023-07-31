@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from .views import AgregarEmpleo, ListaEmpleos, ListaMisEmpleos, ListaEmpleosPorCategoria, detalle_empleo, EditarEmpleo, EliminarEmpleo
+from .views import AgregarEmpleo, ListaEmpleos, ListaMisEmpleos, ListaEmpleosPorCategoria, detalle_empleo, EditarEmpleo, EliminarEmpleo, ordenar_empleo_por
 
 app_name = 'apps.empleos'
 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('detalle_empleo/<int:pk>/', detalle_empleo, name='detalle_empleo'),
     path('editar_empleo/<int:pk>/', EditarEmpleo.as_view(), name='editar_empleo' ),
     path('confirmar/<int:pk>/', EliminarEmpleo.as_view(), name='eliminar_empleo'),
+    path('ordenar_empleo/', ordenar_empleo_por, name='ordenar_empleo'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

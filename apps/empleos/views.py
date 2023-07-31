@@ -39,11 +39,8 @@ class ListaEmpleos(ListView):
             categorias = Categorias.objects.filter(empleo__empresa__in=user_empresas).distinct()
             context['categorias'] = categorias
         else:
-            context = super().get_context_data()
             categorias = Categorias.objects.all()
-            context['categorias'] = categorias
         return context
-        
         
 
     def get_queryset(self) -> QuerySet[Any]:
@@ -121,4 +118,20 @@ class EliminarEmpleo(DeleteView, LoginRequiredMixin):
     model = Empleo
     template_name = 'empleos/confirma_eliminar.html'
     success_url = reverse_lazy('apps.empleos:mis_empleos')
+    
+def ordenar_empleo_por(request):
+    orden = request.GET.get('orden', '')
+    print("Orden:", orden)
+    if orden == 'fecha':
+        empleos = Empleo.objects.order_by('fecha_publicacion')
+    elif orden == 'salario':
+        empleos = Empleo.objects.order_by('salario')
+    else:
+        empleos = Empleo.objects.all()
+
+    context = {
+        'empleos': empleos,
+        }
+    template_name = 'empleos/lista_empleos.html'
+    return render(request, template_name, context)
     
