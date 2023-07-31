@@ -6,7 +6,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 
 from .models import Empleo,Categorias
 from .forms import EmpleoForm
@@ -62,13 +61,10 @@ class ListaMisEmpleos(LoginRequiredMixin, ListView):
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
     
-    @login_required
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
-            user_empresas = self.request.user.empresa_set.all()
-            categorias = Categorias.objects.filter(empleo__empresa__in=user_empresas).distinct()
-            context['categorias'] = categorias
+        context = super().get_context_data()
+        categorias = Categorias.objects.all()
+        context['categorias'] = categorias
         return context
 
     def get_queryset(self) -> QuerySet[Any]:

@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from .views import *
+from .views import AgregarEmpleo, ListaEmpleos, ListaMisEmpleos, ListaEmpleosPorCategoria, detalle_empleo, EditarEmpleo, EliminarEmpleo
 
 app_name = 'apps.empleos'
 

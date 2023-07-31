@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from .models import Empleo, Categorias, Localidad, Empresa
 
 
 # Register your models here.
