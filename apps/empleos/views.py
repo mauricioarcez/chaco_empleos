@@ -6,6 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.core.paginator import Paginator
 
 from .models import Empleo,Categorias
 from .forms import EmpleoForm
@@ -26,31 +27,32 @@ class AgregarEmpleo(CreateView, LoginRequiredMixin):
         return super().form_valid(form)
 
 
-class ListaEmpleos(ListView):
-    model = Empleo
-    template_name = 'empleos/lista_empleos.html'
-    context_object_name = 'empleos'
-    ordering = ['-fecha_publicacion',]
+def lista_empleos(request):
+    query = request.GET.get('buscador', '')
+    orden = request.GET.get('orden', '')
+    categorias = Categorias.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        if self.request.user.is_authenticated:
-            user_empresas = self.request.user.empresa_set.all()
-            categorias = Categorias.objects.filter(empleo__empresa__in=user_empresas).distinct()
-            context['categorias'] = categorias
-        else:
-            categorias = Categorias.objects.all()
-        return context
+    empleos = Empleo.objects.all()
+
+    if query:
+        empleos = empleos.filter(puesto__icontains=query)
+
+    if orden == 'fecha':
+        empleos = empleos.order_by('fecha_publicacion')
+    elif orden == 'salario':
+        empleos = empleos.order_by('salario')
+
+    # Dividir la lista de empleos en páginas
+    paginator = Paginator(empleos, 10)
+    page = request.GET.get('page')
+    empleos_paginados = paginator.get_page(page)
+
+    context = {
+        'empleos': empleos_paginados,
+        'categorias': categorias,
+    }
+    return render(request, 'empleos/lista_empleos.html', context)
         
-
-    def get_queryset(self) -> QuerySet[Any]:
-        query = self.request.GET.get('buscador')
-        queryset = super().get_queryset()
-
-        if query:
-            queryset = queryset.filter(puesto__icontains=query)
-        return queryset.order_by('puesto')
-    
 
 class ListaMisEmpleos(LoginRequiredMixin, ListView):
     model = Empleo
