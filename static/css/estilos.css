@@ -187,6 +187,61 @@ a.subrayado{
 
 /* ----- ESTILOS DEL FOOTER ---- */
 
+/* ----- NOSTOROS ---- */
+
+.imagen1 {
+  width: 100%;
+  height: 406px;
+  position: relative;
+}
+
+.imagen1 img{
+  width: 100%;
+  height: 406px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+
+.imagen1 svg{
+  width: 493px;
+  height: 248px;
+  left: 100px;
+  top: 159px;
+  position: absolute;
+}
+
+.imagen1 h1{
+  margin-top: 200px;
+}
+
+.texto_imagen1{
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 24px;
+  font-family: Lato;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.imagen2{
+  height: 629px;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+
+.texto_imagen2{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
 /* ----- REGISTRAR USUARIO ---- */
  .container {
    max-width: 500px;

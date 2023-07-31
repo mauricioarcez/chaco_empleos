@@ -20,11 +20,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from .views import inicio 
+from .views import inicio,nosotros
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name='inicio'),
+    path('nosotros/',nosotros,name='nosotros'),
     path('usuarios/', include('apps.usuarios.urls')),
     path('empleos/',include('apps.empleos.urls')),
     path('comentarios/', include('apps.comentarios.urls')),
