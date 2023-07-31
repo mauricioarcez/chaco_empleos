@@ -20,7 +20,10 @@ nav {
   align-items: center;
   z-index: 999;
 }
-
+.icono_nav{
+  display: inline-flex;
+  align-items: center;
+}
 .nav_logo{
   display: flex;
   margin-left: 1rem;
@@ -34,8 +37,8 @@ nav {
 }
 .contacto a{
   text-decoration: none;
+  padding: 1rem;
   color: #1B1C1E;
-  padding: 1.2rem;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 700;
@@ -169,6 +172,7 @@ a.subrayado{
   font-style: normal;
   font-weight: 600;
 }
+
 .svg_verde{
   position: relative;
   top: 6rem;
@@ -223,7 +227,7 @@ a.subrayado{
 
 .form_empleo input,textarea {
   border: 1px solid #ccc;
-  border-radius: 10px; /* Agrega el borde redondeado */
+  border-radius: 10px;
   padding: 5px;
   margin-bottom: 10px;
 }
@@ -403,7 +407,14 @@ a.eliminar{
   overflow-y: scroll;
 }
 .card_detalle {
-  width: 90%;
+  width: 91%;
   height: 90%;
   display: flexbox;
+}
+.icono{
+  display: inline-flex;
+  align-items: center;
+}
+.icono img{
+  margin-right: 10px;
 }

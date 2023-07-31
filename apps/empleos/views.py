@@ -32,9 +32,9 @@ class ListaEmpleos(ListView):
     context_object_name = 'empleos'
     ordering = ['-fecha_publicacion',]
 
-    def get_context_data(self):
-        context = super().get_context_data()
-        categorias = Categorias.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        categorias = Categorias.objects.filter(empleo__empresa__administrador=self.request.user).distinct()
         context['categorias'] = categorias
         return context
 

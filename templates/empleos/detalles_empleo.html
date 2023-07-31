@@ -49,12 +49,38 @@
     </div>
     <div class="el_detalle">
         <div class='card_detalle'>
-            <h2>{{empleo.puesto}}</h2>
-            <h4>{{empleo.empresa}}</h4>
-            <h5>Vacantes: {{empleo.vacantes}}</h5>
-            <h5>Modalidad: {{empleo.modalidad}}</h5>
+            <h1 style="color:#1B1C1E;">{{empleo.puesto}}</h1>
+            <h4 style="color:gray;">{{empleo.empresa}}</h4>
             <br>
-            <h5>Detalles del empleo: <br>{{empleo.contenido}}</h5>
+            <div class="icono">
+                <img src="{% static 'img/icono_maleta.svg' %}" alt="Icono maleta">
+                <h5>Vacantes:</h5>
+                <p style="  margin-right: 10px; padding-top:10px; color:gray;">{{empleo.vacantes}}</p>
+            </div>
+            <br>
+            <div class="icono">
+                <img src="{% static 'img/icono_modalidad.svg' %}" alt="Icono modalidad">
+                <h5 style="color:#1B1C1E;">Modalidad:</h5>
+                <p style="margin-left:10px;  padding-top:10px; color:gray;">{{empleo.modalidad}}</p>
+            </div>
+            <br>
+            <div class="icono">
+                <img src="{% static 'img/icon_pin.svg' %}" alt="Icono localidad">
+                <h5 style="color:#1B1C1E;">Localidad:</h5>
+                <p style="margin-left:10px;  padding-top:10px; color:gray;">{{empleo.localidad}}</p>
+            </div>
+            <br>
+            <div class="icono">
+                <img src="{% static 'img/icono_perfil.svg' %}" alt="Icono perfil">
+                <h5 style="color:#1B1C1E;">Nivel Laboral:</h5>
+                <p style="margin-left:10px; padding-top:10px; color:gray;">{{empleo.nivel_laboral}}</p>
+            </div>
+            <br>
+            <br>
+            <h5 style="color:#1B1C1E;">Requerimientos:
+                <br>
+                <p style="margin-top:10px;">{{empleo.contenido}}</p>
+            </h5>
         </div> 
     </div>
 {% endblock %}
