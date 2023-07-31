@@ -123,7 +123,6 @@ class EliminarEmpleo(DeleteView, LoginRequiredMixin):
     
 def ordenar_empleo_por(request):
     orden = request.GET.get('orden', '')
-    print("Orden:", orden)
     if orden == 'fecha':
         empleos = Empleo.objects.order_by('fecha_publicacion')
     elif orden == 'salario':
