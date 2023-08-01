@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.core.paginator import Paginator
 
-from .models import Empleo,Categorias
+from .models import Empleo,Categorias, Empresa
 from .forms import EmpleoForm
 from apps.comentarios.forms import ComentarioForm
 from apps.comentarios.models import Comentario
@@ -25,6 +25,12 @@ class AgregarEmpleo(CreateView, LoginRequiredMixin):
     def form_valid(self, form):
         form.instance.colaborador = self.request.user
         return super().form_valid(form)
+    
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        # Filtrar las opciones del campo "empresa" basadas en el usuario autenticado
+        form.fields['empresa'].queryset = Empresa.objects.filter(administrador=self.request.user)
+        return form
 
 
 def lista_empleos(request):
