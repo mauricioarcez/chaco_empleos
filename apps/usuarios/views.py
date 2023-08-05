@@ -30,5 +30,4 @@ class RegistrarUsuario(CreateView):
     success_url = reverse_lazy('apps.usuarios:iniciar_sesion')
     
     def form_valid(self, form):
-        print(form.cleaned_data)
         return super().form_valid(form)
