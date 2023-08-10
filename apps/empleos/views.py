@@ -7,6 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.http import Http404
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from .models import Empleo,Categorias, Empresa
 from .forms import EmpleoForm
@@ -98,7 +100,7 @@ def lista_empleos(request):
     return render(request, 'empleos/lista_empleos.html', context)
         
 
-class ListaMisEmpleos(LoginRequiredMixin, ListView):
+class ListaMisEmpleos(UserPassesTestMixin, ListView):
     """
     Vista basada en clase para mostrar los empleos que le pertenecen a un usuario colaborador.
 
@@ -136,6 +138,15 @@ class ListaMisEmpleos(LoginRequiredMixin, ListView):
         if query:
             queryset = queryset.filter(puesto__icontains=query)
         return queryset.order_by('puesto')
+    
+    def test_func(self):
+        # Verifica si el usuario actual es el administrador de alguna empresa
+        return self.request.user.empresa_set.filter(administrador=self.request.user).exists()
+
+    def handle_no_permission(self):
+        # Maneja la redirección si el usuario no tiene permiso para acceder
+        raise Http404("No tienes empleos para mostrar o no tienes permiso para acceder a esta página")
+
     
 
 def ListaEmpleosPorCategoria(request, categoria):
@@ -207,7 +218,7 @@ def detalle_empleo(request, pk):
     return render(request, template_name, contexto)
 
  
-class EditarEmpleo(UpdateView, LoginRequiredMixin):
+class EditarEmpleo(UserPassesTestMixin, UpdateView):
     """
     Vista basada en clase para editar un empleo del usuario.
 
@@ -228,6 +239,16 @@ class EditarEmpleo(UpdateView, LoginRequiredMixin):
     form_class = EmpleoForm
     template_name = 'empleos/editar_empleos.html'
     success_url = reverse_lazy('apps.empleos:mis_empleos')
+    
+    def test_func(self):
+        # Verifica si el usuario actual es un colaborador de la empresa asociada al empleo
+        empleo = self.get_object()  # Obtiene el objeto Empleo actual
+        empresa = empleo.empresa  # Obtiene la empresa asociada al empleo
+        return self.request.user.is_authenticated and self.request.user == empresa.administrador
+
+    def handle_no_permission(self):
+        # Maneja la redirección si el usuario no tiene permiso para acceder
+        raise Http404("No tienes permiso para acceder a esta página")
 
 class EliminarEmpleo(DeleteView, LoginRequiredMixin):
     """
