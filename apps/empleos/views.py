@@ -18,7 +18,7 @@ from apps.comentarios.models import Comentario
 # Create your views here.
 
 
-class AgregarEmpleo(CreateView, LoginRequiredMixin):
+class AgregarEmpleo(UserPassesTestMixin, CreateView):
     """
     Vista para agregar un empleo a la base de datos.
 
@@ -38,6 +38,14 @@ class AgregarEmpleo(CreateView, LoginRequiredMixin):
         mostrando solo las empresas asociadas al usuario como administrador.
 
     """
+
+    def test_func(self):
+        # Verifica si el usuario actual es un administrador de alguna empresa
+        return self.request.user.empresa_set.filter(administrador=self.request.user).exists()
+
+    def handle_no_permission(self):
+        # Maneja la redirección si el usuario no tiene permiso para acceder
+        raise Http404("No tienes permiso para acceder a esta página")
     
     model = Empleo
     fields = ['puesto','nivel_laboral','carga_horaria','salario','contenido','modalidad','vacantes','categoria','localidad','empresa']
@@ -89,9 +97,9 @@ def lista_empleos(request):
         empleos = empleos.order_by('salario')
 
     # Dividir la lista de empleos en páginas
-    paginator = Paginator(empleos, 10)
-    page = request.GET.get('page')
-    empleos_paginados = paginator.get_page(page)
+    paginator = Paginator(empleos, 4)
+    page_numero = request.GET.get('page')
+    empleos_paginados = paginator.get_page(page_numero)
 
     context = {
         'empleos': empleos_paginados,

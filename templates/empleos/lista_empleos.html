@@ -53,5 +53,18 @@
         {% endfor %}
     </div>
     <br>
+    <div class="container text-center mt-4">
+        {% if empleos.has_previous %}
+            <a href="?page={{ empleos.previous_page_number }}" class="btn btn-custom-primary" aria-label="Anterior">
+            &laquo; Anterior
+            </a>
+        {% endif %}
+
+        {% if empleos.has_next %}
+            <a href="?page={{ empleos.next_page_number }}" class="btn btn-custom-primary" aria-label="Siguiente">
+            Siguiente &raquo;
+            </a>
+        {% endif %}
+    </div>
     <p style="color:gray; text-align: center;">&copy;Informatorio2023 - Arce Mauricio, Monzon Augusto, Zibecchi Daniel - Comision 4</p>
 {% endblock %}

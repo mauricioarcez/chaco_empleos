@@ -472,3 +472,15 @@ a.eliminar{
 .icono img{
   margin-right: 10px;
 }
+
+/* ----- BOTON PAGINADOR ---- */
+.btn-custom-primary {
+  color: #13417E;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+
+.btn-custom-primary:hover{
+    border-color: #13417E;
+    color: #13417E;
+}
