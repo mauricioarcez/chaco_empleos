@@ -22,6 +22,7 @@ class RegistrarUsuarioForm(UserCreationForm):
             'email': EmailInput(attrs={
                 'class': "form-control", 
                 'style': 'max-width: 300px; border-radius: 15px; border: 1px solid #8C8C8C; background: #F0F0F0;',
+                'placeholder': 'ejemplo@gmail.com',
             }),
             'username': TextInput(attrs={
                 'class': "form-control",
@@ -50,6 +51,7 @@ class RegistrarUsuarioForm(UserCreationForm):
             'fecha_nacimiento': forms.DateInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px; border-radius: 15px; border: 1px solid #8C8C8C; background: #F0F0F0;',
+                'placeholder': 'AAAA-MM-DD',
             }),
             'imagen': FileInput(attrs={
                 'class': "form-control",
