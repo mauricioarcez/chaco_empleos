@@ -47,6 +47,7 @@ class RegistrarUsuarioForm(UserCreationForm):
             'dni': forms.NumberInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px; border-radius: 15px; border: 1px solid #8C8C8C; background: #F0F0F0;',
+                'placeholder': 'Numerico, sin espacios ni puntos.',
             }),
             'fecha_nacimiento': forms.DateInput(attrs={
                 'class': "form-control",
