@@ -23,7 +23,7 @@
                             <small class="text-muted">{{ comentario.fecha }}</small>
                             <a href="#" style="font-size:0.7rem; padding: 1rem; ">Ver respuestas(0)</a>
                             {% if request.user == comentario.usuario %}
-                            <a href="{% url 'apps.comentarios:eliminar_comentario' comentario.pk %}" style="color: red; padding-left: 10rem">Eliminar</a>
+                            <a href="{% url 'apps.comentarios:eliminar_comentario' comentario.pk %}" style="color: red; padding-left:1.3rem;">Eliminar</a>
                             {% endif %}
                         </li>
                         {% endfor %}

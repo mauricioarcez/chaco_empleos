@@ -8,7 +8,7 @@ from .views import AgregarComentario, EliminarComentario
 app_name = 'apps.comentarios'
 
 urlpatterns = [
-    path('crear_comentario/', AgregarComentario, name = 'crear_comentario'),
+    path('crear_comentario/', AgregarComentario.as_view(), name = 'crear_comentario'),
     path('eliminar_comentario/<int:pk>/', EliminarComentario.as_view(), name='eliminar_comentario'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

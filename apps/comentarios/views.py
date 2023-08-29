@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DeleteView
 from django.contrib.auth.decorators import login_required
@@ -9,34 +10,40 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 
-@login_required
-def AgregarComentario(request):
+
+class AgregarComentario(LoginRequiredMixin, View):
     """
-    Vista para agregar un comentario.
+    Vista basada en clase para agregar un comentario.
 
     Esta vista requiere que el usuario esté autenticado para poder acceder a ella.
-    Se utiliza el formulario ComentarioForm para crear un nuevo comentario a partir
-    de los datos enviados mediante el método POST. Si el formulario es válido,
+    Utiliza el formulario ComentarioForm para crear un nuevo comentario a partir
+    de los datos enviados mediante los métodos GET y POST. Si el formulario es válido,
     el comentario se guarda en la base de datos.
 
-    Args:
-        request: La solicitud HTTP recibida.
+    Métodos:
+        get(request): Maneja las solicitudes GET para mostrar el formulario de comentario.
+        post(request): Maneja las solicitudes POST para validar y guardar el comentario.
 
-    Returns:
-        HttpResponse: Una respuesta HTTP que renderiza el template 'comentarios/crear_comentario.html'
-        con el formulario ComentarioForm y lo envía al cliente.
+    Atributos:
+        template_name (str): El nombre de la plantilla HTML para renderizar.
+
+    Args:
+        View: Clase base para las vistas basadas en clase de Django.
 
     """
-    
-    form = ComentarioForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-
-    contexto = {
-        'form': form,
-    }
     template_name = 'comentarios/crear_comentario.html'
-    return render(request, template_name, contexto)
+    
+    def get(self, request):
+        form = ComentarioForm()
+        contexto = {'form': form}
+        return render(request, self.template_name, contexto)
+    
+    def post(self, request):
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+        contexto = {'form': form}
+        return render(request, self.template_name, contexto)
 
 class EliminarComentario(LoginRequiredMixin, DeleteView):
     """
