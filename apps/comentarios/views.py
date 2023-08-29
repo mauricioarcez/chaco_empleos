@@ -20,7 +20,7 @@ def AgregarComentario(request):
     el comentario se guarda en la base de datos.
 
     Args:
-        request (HttpRequest): La solicitud HTTP recibida.
+        request: La solicitud HTTP recibida.
 
     Returns:
         HttpResponse: Una respuesta HTTP que renderiza el template 'comentarios/crear_comentario.html'
