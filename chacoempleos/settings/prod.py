@@ -1,4 +1,3 @@
-from chacoempleos.settings.base import *
 from chacoempleos.logging import *
 from dotenv import load_dotenv
 import os
