@@ -1,8 +1,10 @@
 from chacoempleos.logging import *
+from .base import *
 from dotenv import load_dotenv
 import os
 
 load_dotenv(Path.joinpath(BASE_DIR, '.env'))
+
 DEBUG = False
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
