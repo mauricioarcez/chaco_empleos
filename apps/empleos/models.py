@@ -5,7 +5,7 @@ from apps.usuarios.models import Usuario
 # Create your models here.
 
 class Categorias(models.Model):
-    nombre = models.CharField(max_length=20, null=False)
+    nombre = models.CharField(max_length=20, null=False, default=None)
 
     def __str__(self) -> str:
         return self.nombre
@@ -22,10 +22,10 @@ class Localidad(models.Model):
 
 class Empresa(models.Model):
 
-    administrador = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
+    administrador = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False, default=None)
     nombre = models.CharField(max_length=40)
     descripcion = models.TextField(blank=True, null=True)
-    localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, null=True)
+    localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, null=False, default=None)
     logo = models.ImageField(null=True, blank=True, upload_to='empleos', default='empleos/logo_default.png')
 
     def __str__(self):
@@ -35,16 +35,17 @@ class Empresa(models.Model):
 class Empleo(models.Model):
     
     puesto = models.CharField(max_length=40,null=False)
-    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    empresa = models.ForeignKey(
+        Empresa, on_delete=models.CASCADE, null=False, default=None)
     contenido = models.TextField()
-    localidad = models.ForeignKey(Localidad,on_delete=models.CASCADE)
+    localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, null=False, default=None)
     salario = models.DecimalField(max_digits=10,decimal_places=2)
     nivel_laboral = models.CharField(max_length=20)
     carga_horaria = models.IntegerField()
     fecha_publicacion = models.DateTimeField(default=timezone.now)
     modalidad = models.CharField(max_length=20)
     vacantes = models.IntegerField()
-    categoria = models.ForeignKey(Categorias,on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categorias,on_delete=models.CASCADE, null=True)
 
 
     def __str__(self) -> str:
