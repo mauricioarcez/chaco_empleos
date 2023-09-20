@@ -11,6 +11,4 @@ RUN pip install -r requirements.txt
 
 COPY ./ ./
 
-ENV DJANGO_SETTINGS_MODULE=chacoempleos.settings.local
-
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]

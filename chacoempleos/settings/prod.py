@@ -1,4 +1,4 @@
-from chacoempleos.logging import *
+from ..logging import *
 from .base import *
 from dotenv import load_dotenv
 import os
@@ -9,11 +9,11 @@ DEBUG = False
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = ['mauricioarcez.pythonanywhere.com']
+#configuracion para pythonanywhere
+#ALLOWED_HOSTS = ['mauricioarcez.pythonanywhere.com']
+ALLOWED_HOSTS = [ '*' ]
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# Database. configurarla en .env
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.mysql",
@@ -25,5 +25,6 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = Path.joinpath(BASE_DIR,'staticfiles')
+
+STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
